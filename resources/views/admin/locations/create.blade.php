@@ -75,7 +75,7 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="primary_use" class="form-label">Primary Use</label>
-                            <select id="primary_use" name="primary_use" class="form-select">
+                            <select id="primary_use" name="primary_use" class="form-select js-select2" data-placeholder="Select primary use">
                                 <option value="">Select primary use</option>
                                 @php($primaryUses = ['Office','Manufacturing','Warehouse','Retail','Data Center','Healthcare','Education','Hospitality','Residential','Other'])
                                 @foreach($primaryUses as $use)
@@ -108,7 +108,7 @@
                     <div class="col-md-4">
                         <div class="mb-3">
                             <label for="state" class="form-label">State/Region *</label>
-                            <select id="state" name="state" class="form-select @error('state') is-invalid @enderror" required>
+                            <select id="state" name="state" class="form-select js-select2 @error('state') is-invalid @enderror" data-placeholder="Select state/region" required>
                                 @php($states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming','Other'])
                                 <option value="">Select state/region</option>
                                 @foreach($states as $s)
@@ -123,7 +123,7 @@
                     <div class="col-md-4">
                         <div class="mb-3">
                             <label for="country" class="form-label">Country *</label>
-                            <select id="country" name="country" class="form-select @error('country') is-invalid @enderror" required>
+                            <select id="country" name="country" class="form-select js-select2 @error('country') is-invalid @enderror" data-placeholder="Select country" required>
                                 @php($countries = ['United States','Canada','United Kingdom','Australia','Germany','France','India','Japan','Malaysia','Singapore','Other'])
                                 <option value="">Select country</option>
                                 @foreach($countries as $c)
@@ -163,6 +163,12 @@
                 <p class="helper mb-3">Use search or click on the map to set coordinates.</p>
                 <div class="map-container">
                     <div id="map"></div>
+                </div>
+                <div class="mt-2">
+                    <button type="button" id="toggle-guidance" class="btn btn-link p-0">I can't find my exact address</button>
+                    <div id="guidance" class="mt-2" style="display:none;">
+                        <small class="text-muted">We use OpenStreetMap data for search. If a precise street address is hard to match, try searching for city, state and postal code (e.g., Jackson, Wyoming 83001) and then click the map to fine tune the marker.</small>
+                    </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6">
@@ -254,7 +260,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="form-select form-select-sm" name="locations[{{ $i }}][primary_use]">
+                                <select class="form-select form-select-sm js-select2-sm" name="locations[{{ $i }}][primary_use]">
                                     <option value="">Select use</option>
                                     @foreach(['Office','Manufacturing','Warehouse','Retail','Data Center','Healthcare','Education','Hospitality','Residential','Other'] as $use)
                                         <option value="{{ $use }}">{{ $use }}</option>
@@ -263,7 +269,7 @@
                             </td>
                             <td><input type="number" class="form-control form-control-sm" name="locations[{{ $i }}][gross_area]" placeholder="Area"></td>
                             <td>
-                                <select class="form-select form-select-sm" name="locations[{{ $i }}][gross_area_uom]">
+                                <select class="form-select form-select-sm js-select2-sm" name="locations[{{ $i }}][gross_area_uom]">
                                     <option value="">Select</option>
                                     <option value="sqft">sqft</option>
                                     <option value="sqm">sqm</option>
@@ -272,7 +278,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="form-select form-select-sm" name="locations[{{ $i }}][country]">
+                                <select class="form-select form-select-sm js-select2-sm" name="locations[{{ $i }}][country]">
                                     <option value="">Select country</option>
                                     @foreach(['United States','Canada','United Kingdom','Australia','Germany','France','India','Japan','Malaysia','Singapore','Other'] as $c)
                                         <option value="{{ $c }}">{{ $c }}</option>
@@ -307,11 +313,14 @@
 @push('styles')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endpush
 
 @push('scripts')
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -335,13 +344,49 @@ document.addEventListener('DOMContentLoaded', function() {
             marker.bindPopup(`Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`).openPopup();
         }
         updateCoordinates(lat, lng);
+        reverseGeocode(lat, lng);
     }
 
     function updateCoordinates(lat, lng) {
         const latInput = document.getElementById('latitude');
         const lngInput = document.getElementById('longitude');
-        if (latInput) latInput.value = (lat ?? '').toString();
-        if (lngInput) lngInput.value = (lng ?? '').toString();
+        if (latInput) latInput.value = (lat ?? '').toFixed ? (lat).toFixed(6) : (lat ?? '');
+        if (lngInput) lngInput.value = (lng ?? '').toFixed ? (lng).toFixed(6) : (lng ?? '');
+    }
+
+    async function reverseGeocode(lat, lng) {
+        try {
+            const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`);
+            const data = await res.json();
+            if (!data || !data.address) return;
+            const addr = data.address;
+            const addressField = document.getElementById('address');
+            const cityField = document.getElementById('city');
+            const stateField = document.getElementById('state');
+            const countryField = document.getElementById('country');
+            const postalField = document.getElementById('postal_code');
+            if (addressField && !addressField.value) addressField.value = data.display_name || '';
+            if (cityField && !cityField.value) cityField.value = addr.city || addr.town || addr.village || addr.county || '';
+            if (stateField) {
+                const stateVal = addr.state || '';
+                // Try to select matching option if present
+                const stateOption = [...stateField.options].find(o => o.text === stateVal);
+                if (stateOption) stateField.value = stateOption.value;
+            }
+            if (countryField) {
+                const countryVal = addr.country || '';
+                const countryOption = [...countryField.options].find(o => o.text === countryVal);
+                if (countryOption) countryField.value = countryOption.value;
+            }
+            if (postalField && !postalField.value) postalField.value = addr.postcode || '';
+            // Refresh Select2 selections
+            if (window.$) {
+                $('#state').trigger('change');
+                $('#country').trigger('change');
+            }
+        } catch (e) {
+            // ignore network errors silently
+        }
     }
 
     // Init geocoder control
@@ -374,6 +419,33 @@ document.addEventListener('DOMContentLoaded', function() {
             const lat = pos.coords.latitude;
             const lng = pos.coords.longitude;
             map.setView([lat, lng], 15);
+        });
+    }
+
+    // Guidance toggle
+    const toggleBtn = document.getElementById('toggle-guidance');
+    const guidance = document.getElementById('guidance');
+    if (toggleBtn && guidance) {
+        toggleBtn.addEventListener('click', function() {
+            const isHidden = guidance.style.display === 'none' || guidance.style.display === '';
+            guidance.style.display = isHidden ? 'block' : 'none';
+            toggleBtn.textContent = isHidden ? 'Hide address guidance' : "I can't find my exact address";
+        });
+    }
+
+    // Initialize Select2
+    if (window.$) {
+        $('#country, #state, #primary_use').select2({
+            theme: 'bootstrap-5',
+            width: '100%',
+            placeholder: function(){ return $(this).data('placeholder') || ''; },
+            allowClear: true
+        });
+        $('.js-select2-sm').select2({
+            theme: 'bootstrap-5',
+            width: 'resolve',
+            minimumResultsForSearch: 5,
+            dropdownAutoWidth: true
         });
     }
 });
