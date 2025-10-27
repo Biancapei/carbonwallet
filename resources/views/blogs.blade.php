@@ -12,8 +12,8 @@
             <div class="row-centered">
                 <div class="header">
                     <h1>Blogs</h1>
-                    <h3 style="line-height: 40px;">Turning sustainability intelligence into action.</h3>
-                    <h3 style="line-height: 40px;">Explore insights on carbon accounting software, ESG reporting, decarbonization, climate technology, and the path to Net Zero.</h3>
+                    <h3>Turning sustainability intelligence into action.</h3>
+                    <h3>Explore insights on carbon accounting software, ESG reporting, decarbonization, climate technology, and the path to Net Zero.</h3>
                 </div>
             </div>
         </div>
@@ -21,8 +21,8 @@
 
     <img src="/images/home/greenball-side.png" style="max-width: 100%; position: absolute; right: 0; top: 80%;">
 
-    <!-- Blog Tabs Section -->
-    <div class="blog-tabs-section">
+    <!-- Blog Tabs Section - Desktop -->
+    <div class="blog-tabs-section d-none d-md-block">
         <div class="container p-0">
             <!-- Tab Navigation -->
             <div class="tab-navigation">
@@ -275,8 +275,90 @@
         </div>
     </div>
 
-    <!-- Subscribe -->
-    <div class="container subscribe px-5">
+    <!-- Mobile Blog Cards - 2x2 Grid -->
+    <div class="blog-tabs-section-mobile d-block d-md-none">
+        <div class="container p-0">
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" onclick="showTabMobile('all')">All</button>
+                <button class="tab-btn" onclick="showTabMobile('carbon-accounting')">Carbon Accounting</button>
+                <button class="tab-btn" onclick="showTabMobile('hospitality')">Hospitality &amp; Tourism</button>
+                <button class="tab-btn" onclick="showTabMobile('net-zero')">Net Zero &amp; Strategy</button>
+                <button class="tab-btn" onclick="showTabMobile('regulations')">Regulations &amp; Disclosure</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- All Blogs Tab -->
+                <div id="all-mobile" class="tab-panel active">
+                    <div class="blog-cards-grid-mobile p-0">
+                        <div class="blog-card-mobile">
+                            <div class="blog-card-image-mobile">
+                                <img src="{{ asset('images/blogs/pic1.png') }}" alt="Blog Post">
+                            </div>
+                            <div class="blog-card-content-mobile">
+                                <div class="author-mobile mt-3">
+                                    <div class="blog-author-mobile">Author name</div>
+                                    <div class="blog-date-mobile">Date</div>
+                                </div>
+                                <h3 class="blog-title-mobile">Why audit ready ESG software is a competitive edge</h3>
+                                <p class="blog-excerpt-mobile">Learn how trusted carbon accounting software strengthens assurance and financing while reducing carbon emissions on the path to net zero.</p>
+                                <h6 class="blog-read-more-mobile">Read More <img src="/images/home/arrow.svg"></h6>
+                            </div>
+                        </div>
+
+                        <div class="blog-card-mobile">
+                            <div class="blog-card-image-mobile">
+                                <img src="{{ asset('images/blogs/pic2.png') }}" alt="Blog Post">
+                            </div>
+                            <div class="blog-card-content-mobile">
+                                <div class="author-mobile mt-3">
+                                    <div class="blog-author-mobile">Author name</div>
+                                    <div class="blog-date-mobile">Date</div>
+                                </div>
+                                <h3 class="blog-title-mobile" style="color: #1AB3C5;">AI anomaly detection for a more accurate carbon footprint</h3>
+                                <p class="blog-excerpt-mobile">See how data validation and localized factors improve precision and accelerate decarbonization across Scope 1, 2, and 3.</p>
+                                <h6 class="blog-read-more-mobile">Read More <img src="/images/home/arrow.svg"></h6>
+                            </div>
+                        </div>
+
+                        <div class="blog-card-mobile">
+                            <div class="blog-card-image-mobile">
+                                <img src="{{ asset('images/blogs/pic3.png') }}" alt="Blog Post">
+                            </div>
+                            <div class="blog-card-content-mobile">
+                                <div class="author-mobile mt-3">
+                                    <div class="blog-author-mobile">Author name</div>
+                                    <div class="blog-date-mobile">Date</div>
+                                </div>
+                                <h3 class="blog-title-mobile">Climate tech in hospitality</h3>
+                                <p class="blog-excerpt-mobile">From guest activity data to verified reporting. How digital passports turn operations data into trusted carbon accounting software outputs and measurable decarbonization.</p>
+                                <h6 class="blog-read-more-mobile">Read More <img src="/images/home/arrow.svg"></h6>
+                            </div>
+                        </div>
+
+                        <div class="blog-card-mobile">
+                            <div class="blog-card-image-mobile">
+                                <img src="{{ asset('images/blogs/pic4.png') }}" alt="Blog Post">
+                            </div>
+                            <div class="blog-card-content-mobile">
+                                <div class="author-mobile mt-3">
+                                    <div class="blog-author-mobile">Author name</div>
+                                    <div class="blog-date-mobile">Date</div>
+                                </div>
+                                <h3 class="blog-title-mobile" style="color: #1AB3C5;">Malaysia reporting updates for SMEs</h3>
+                                <p class="blog-excerpt-mobile">What to know now. Practical steps to improve ESG software readiness and manage carbon emissions while moving toward net zero.</p>
+                                <h6 class="blog-read-more-mobile">Read More <img src="/images/home/arrow.svg"></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscribe - Desktop -->
+    <div class="container subscribe px-5 d-none d-md-block">
         <h1>Subscribe</h1>
         <p class="my-4">Receive monthly insights on carbon accounting, ESG software, climate technology, and credible decarbonization strategies for enterprises and SMEs.</p>
         <div class="subscribe-form my-5">
@@ -292,6 +374,24 @@
         </div>
         <div class="" style="border-top: 1px solid #595959; padding-top: 3rem;">
             <p>Carbon AI publishes guidance and analysis on ESG software, carbon accounting, climate technology adoption, carbon footprint measurement, decarbonization planning, and verified pathways to Net Zero.</p>
+        </div>
+    </div>
+
+    <!-- Subscribe - Mobile -->
+    <div class="container subscribe-mobile d-flex d-md-none my-5">
+        <div class="subscribe-card-mobile">
+            <h1>Subscribe</h1>
+            <p>Receive monthly insights on carbon accounting, ESG software, climate technology, and credible decarbonization strategies for enterprises and SMEs.</p>
+            <div class="subscribe-form-mobile mt-4" style="display: flex; flex-direction: column; align-items: stretch; gap: 1rem;">
+                <input type="email" placeholder="Enter your email" class="email-input-mobile" required>
+                <div style="display: flex; flex-direction: row; gap: 1rem; justify-content: center; align-items: center;">
+                    <a href="#" class="subscribe-btn-mobile">Subscribe</a>
+                    <a href="#" class="readmore-btn-mobile">Read More</a>
+                </div>
+            </div>
+            <div class="subscribe-footer-mobile" style="border-top: 1px solid #595959; padding-top: 2rem; margin-top: 2rem;">
+                <p>Carbon AI publishes guidance and analysis on ESG software, carbon accounting, climate technology adoption, carbon footprint measurement, decarbonization planning, and verified pathways to Net Zero.</p>
+            </div>
         </div>
     </div>
 </div>
@@ -312,6 +412,30 @@ function showTab(tabId) {
 
     // Show the selected tab panel
     const selectedPanel = document.getElementById(tabId);
+    if (selectedPanel) {
+        selectedPanel.classList.add('active');
+    }
+
+    // Add active class to the clicked button
+    const clickedButton = event.target;
+    clickedButton.classList.add('active');
+}
+
+function showTabMobile(tabId) {
+    // Hide all tab panels
+    const panels = document.querySelectorAll('.tab-panel');
+    panels.forEach(panel => {
+        panel.classList.remove('active');
+    });
+
+    // Remove active class from all tab buttons
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+
+    // Show the selected tab panel
+    const selectedPanel = document.getElementById(tabId + '-mobile');
     if (selectedPanel) {
         selectedPanel.classList.add('active');
     }

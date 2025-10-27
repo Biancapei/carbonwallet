@@ -15,7 +15,7 @@
             @csrf
 
             <div class="text-center">
-                <div class="header">Add a Location</div>
+                <div class="admin-header">Add a Location</div>
                 <p>Add a location to your 2024 reporting year. These include physical places you own, rent, or lease.
                 Learn more</p>
             </div>

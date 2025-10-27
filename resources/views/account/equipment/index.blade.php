@@ -30,7 +30,7 @@
 
     {{-- Description Text --}}
     <div class="text-center mb-4">
-        <div class="header">Add Equipment</div>
+        <div class="admin-header">Add Equipment</div>
         <p>Add equipment to your 2024 reporting year. This includes backup generators, chillers, and other machinery used by your organization. <a href="">Learn more</a></p>
         <a href="{{ route('account.equipment.create') }}" class="btn btn-primary mt-3">
             <i class="fas fa-plus"></i> Add Equipment

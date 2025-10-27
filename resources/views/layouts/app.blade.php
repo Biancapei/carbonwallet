@@ -15,6 +15,18 @@
     <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
+    @if(request()->path() === 'about')
+        <link rel="stylesheet" href="{{ asset('css/about.css') }}">
+    @endif
+
+    @if(request()->path() === 'blogs')
+        <link rel="stylesheet" href="{{ asset('css/blogs.css') }}">
+    @endif
+
+    @if(request()->path() === 'solutions')
+        <link rel="stylesheet" href="{{ asset('css/solutions.css') }}">
+    @endif
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
 

@@ -40,7 +40,7 @@
         @csrf
 
         <div class="text-center">
-            <div class="header">Add Vehicle Data</div>
+            <div class="admin-header">Add Vehicle Data</div>
             <p>Add an Internal Combustion Engine Vehicle (ICEV) to your 2024 reporting year. This includes cars, trucks, or other motorized vehicles used by your organization which do not run on electricity. To add data for electric vehicles, add their primary charging station as a "Location" <a href="">here</a>.</p>
         </div>
 

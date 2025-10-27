@@ -12,7 +12,7 @@
 
     <div id="multiple-locations-form">
         <div class="text-center">
-            <div class="header">Add Multiple Locations</div>
+            <div class="admin-header">Add Multiple Locations</div>
             <p>Upload multiple locations at once. You can always download the locations data below to share with others or come back to this screen to re-upload your data at a later point in time.</p>
             <p><a href="#" class="text-primary">Learn more about how to add multiple locations</a></p>
         </div>

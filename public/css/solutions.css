@@ -1,0 +1,395 @@
+/* SOLUTIONS PAGE CSS */
+
+/* Background */
+.ai-bg {
+    background: #000 !important;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1) .6px, transparent 0.6px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) .6px, transparent .6px) !important;
+    background-size: 160px 160px !important;
+    background-position: 0 0, 0 0 !important;
+    background-repeat: repeat !important;
+    min-height: 100vh !important;
+    position: relative !important;
+}
+
+/* AI Validation and Engagement Sections */
+.ai-validation-section, .engagement-section {
+    background: linear-gradient(315deg, rgb(127 241 255 / 10%) 0%, rgb(145 166 168 / 8%) 100%);
+    padding: 2rem 3rem;
+    margin: 0 7rem;
+    box-shadow: 0px 10px 15px -3px rgba(26, 179, 197, 0.2), 0px 4px 6px -4px rgba(26, 179, 197, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(26, 179, 197, 0.3);
+}
+
+.ai-row, .interoperability-row {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    min-height: 600px;
+}
+
+.ai-content {
+    padding: 2rem 0;
+}
+
+.ai-title, .int-title {
+    color: #1AB3C5;
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.int-title, .int-title-mobile {
+    color: #2BD7BD !important;
+}
+
+.ai-title::after, .int-title::after {
+    content: '';
+    display: block;
+    width: 160px;
+    height: 2px;
+    background: #1AB3C5;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.int-title::after {
+    background: #2BD7BD !important;
+}
+
+.ai-text p, .int-text p {
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 30px;
+    margin-bottom: 1.5rem;
+}
+
+/* Interoperability and Data Exchange */
+.interoperability-section, .data-exchange-section {
+    background: linear-gradient(94.56deg, rgba(43, 215, 189, 0.1) 0%, rgba(43, 215, 189, 0.08) 100%);
+    padding: 2rem 3rem;
+    margin: 0 7rem;
+    box-shadow: 0px 10px 15px -3px #2BD7BD66, 0px 4px 6px -4px #2BD7BD66;
+    border-radius: 12px;
+    border: 1px solid rgba(43, 215, 189, 0.3);
+}
+
+/* Impact Section */
+.impact-section {
+    padding: 5rem 0;
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+}
+
+.impact-title {
+    background: linear-gradient(90deg, #0FA3B8 0%, #1AB3C5 50%, #2BD7BD 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3.125rem;
+    font-weight: 700;
+}
+
+.impact-card {
+    background: linear-gradient(0deg, #27272700, #48484866), linear-gradient(167.26deg, rgba(0, 0, 0, 0) 12.47%, rgb(26 197 179 / 38%) 97.89%), linear-gradient(180deg, transparent 70%, rgba(26, 179, 197, 0.1) 100%);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.impact-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(22, 211, 202, 0.4);
+    box-shadow: 0 10px 30px rgba(22, 211, 202, 0.2);
+}
+
+.impact-metric {
+    font-size: 3.125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 30px;
+}
+
+.impact-card:nth-child(1) .impact-metric {
+    background: linear-gradient(90.05deg, #2BD7BD 0.05%, #32AF93 70.59%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.impact-card:nth-child(2) .impact-metric {
+    background: linear-gradient(90deg, #1AB3C5 0%, #2D8EEF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.impact-card:nth-child(3) .impact-metric {
+    color: #16d3ca;
+}
+
+.impact-subtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.impact-card:nth-child(1) .impact-subtitle {
+    color: #16d3ca;
+}
+
+.impact-card:nth-child(2) .impact-subtitle {
+    color: #1AB3C5;
+}
+
+.impact-card:nth-child(3) .impact-subtitle {
+    color: #16d3ca;
+}
+
+.impact-description {
+    color: #ffffff;
+    font-size: 1.125rem;
+    line-height: 30px;
+}
+
+.ai-bottom {
+    background: #0A0A0A;
+    position: relative;
+    overflow: hidden;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.ai-bottom h1 {
+    font-weight: 700;
+    font-size: 1.875rem;
+    color: #fff;
+    line-height: 40px;
+    position: relative;
+    z-index: 3;
+    padding: 1rem;
+}
+
+.ai-bottom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 150px 100px;
+    background-position: 0 0, 0 0;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.ai-bottom::after {
+    content: '';
+    position: absolute;
+    top: -90%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 560px;
+    background: radial-gradient(ellipse, #2BD7BD 0%, rgba(26, 179, 197, 0.2) 50%, transparent 70%);
+    z-index: 2;
+}
+
+.ai-bottom .my-5,
+.ai-bottom .mt-5 {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .ai-validation-section,
+    .engagement-section,
+    .data-exchange-section {
+        margin: 0 1rem;
+        padding: 2rem 1rem;
+    }
+
+    .ai-title, .int-title {
+        font-size: 18px;
+    }
+
+    .ai-text-mobile p, .int-text-mobile p, .impact-description {
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    /* Mobile AI Validation Section */
+    .ai-validation-section-mobile {
+        background: linear-gradient(315deg, rgb(127 241 255 / 10%) 0%, rgb(145 166 168 / 8%) 100%);
+        padding: 2rem 1rem;
+        margin: 2rem 1rem;
+        box-shadow: 0px 10px 15px -3px rgba(26, 179, 197, 0.2), 0px 4px 6px -4px rgba(26, 179, 197, 0.2);
+        border-radius: 12px;
+        border: 1px solid rgba(26, 179, 197, 0.3);
+    }
+
+    .ai-title-mobile {
+        color: #1AB3C5;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .ai-title-mobile::after, .int-title-mobile::after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 2px;
+        background: #1AB3C5;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .int-title-mobile {
+        color: #1AB3C5;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .int-title-mobile::after {
+        background: #2BD7BD !important;
+    }
+
+    .ai-row {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .impact-title {
+        font-size: 2rem;
+    }
+
+    .impact-section {
+        padding: 2rem 1rem;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .impact-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .impact-metric {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .impact-subtitle {
+        font-size: 16px;
+    }
+
+    .interoperability-section, .data-exchange-section {
+        margin: 2rem 1rem;
+        padding: 2rem 1rem;
+    }
+
+    .ai-bottom h1 {
+        font-size: 1.5rem;
+        line-height: 30px;
+    }
+
+    /* Mobile Bottom Section */
+    .container.bottom-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .container.bottom-mobile::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 150px 100px;
+        background-position: 0 0, 0 0;
+        opacity: 0.3;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .bottom-card-mobile {
+        background: #02010300;
+        border-radius: 5px;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        max-width: 350px;
+        width: 100%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bottom-card-mobile::after {
+        content: '';
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 150%;
+        background: radial-gradient(ellipse, #2BD7BD 0%, rgba(26, 179, 197, 0.2) 50%, transparent 70%);
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .bottom-card-mobile h1 {
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 20px;
+        color: #fff;
+        position: relative;
+        z-index: 4;
+        margin-bottom: 1rem;
+    }
+
+    .bottom-card-mobile p {
+        font-size: 12px;
+        line-height: 20px;
+        color: #ffffff;
+    }
+
+    .bottom-buttons-mobile {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 4;
+    }
+
+    .bottom-buttons .start-for-free-btn,
+    .bottom-buttons .request-demo-btn {
+        font-size: 12px;
+        padding: 0.7rem 1.4rem;
+        border-radius: 30px;
+        box-shadow: 0px 0px 22px rgba(242, 242, 242, 0.50) inset;
+        backdrop-filter: blur(12px);
+        width: 150px;
+        text-align: center;
+    }
+
+    .bottom-buttons .request-demo-btn {
+        background: linear-gradient(90deg, rgba(43, 215, 189, 0.50) 0%, rgba(26, 179, 197, 0.50) 100%);
+        box-shadow: 7px 7px 10px rgba(43, 215, 189, 0.40) inset;
+    }
+}
+

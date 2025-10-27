@@ -25,7 +25,7 @@
             @csrf
 
         <div class="text-center">
-            <div class="header">Add a Location</div>
+            <div class="admin-header">Add a Location</div>
             <p>Add a location to your 2024 reporting year. These include physical places you own, rent, or lease.
             Learn more</p>
         </div>
@@ -237,7 +237,7 @@
     @if(request('type') === 'multiple')
     <div id="multiple-locations-form">
         <div class="text-center">
-            <div class="header">Add multiple locations</div>
+            <div class="admin-header">Add multiple locations</div>
             <p style="padding: 0rem 5rem;">Upload multiple locations at once. You can always download the locations data below to share with others or come back to this screen to re-upload your data at a later point in time.<br> <a href="">Learn more about how to add multiple locations</a></p>
         </div>
 

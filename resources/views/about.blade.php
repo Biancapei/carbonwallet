@@ -10,7 +10,12 @@
         </div>
         <div class="container">
             <div class="row-centered">
-                <div class="header">
+                <div class="header d-none d-md-block">
+                    <h1>About Us</h1>
+                </div>
+
+                {{-- Mobile --}}
+                <div class="header d-block d-md-none" style="margin-top: -10rem;">
                     <h1>About Us</h1>
                 </div>
             </div>
@@ -20,7 +25,7 @@
     <!-- Display Images -->
     <div class="container-fluid display-section p-0" style="margin-top: -20rem;">
         <div class="about-wrapper">
-            <img src="{{ asset('images/about/pic1.png') }}" >
+            <img src="{{ asset('images/about/pic1.svg') }}" >
         </div>
     </div>
 
@@ -42,7 +47,7 @@
     <div class="team" style="margin-top: 10rem;">
         <div class="container">
             <h3>Team</h3>
-            <div class="row align-items-center" style="padding-top: 3rem; padding-bottom: 3rem; min-height: 500px;">
+            <div class="row align-items-center team-row">
                 <div class="col-12 col-md-6 text-center">
                     <div class="team-card">
                         <img src="{{ asset('images/about/image1.png') }}" class="team-image">
@@ -84,10 +89,10 @@
     </div>
 
     <!-- Investors-->
-    <div class="investors">
-        <div class="container" style="padding-top: 10rem; padding-bottom: 10rem;">
+    <div class="">
+        <div class="container investors"">
             <h3>Investors</h3>
-            <div class="row" style="padding-top: 3rem;"">
+            <div class="row investors-row">
                 <div class="col-12 col-md-6">
                     <div class="inv-card">
                         <div class="d-flex justify-content-center">
@@ -116,7 +121,7 @@
     </div>
 
     <!-- Advisors-->
-    <div class="advisor">
+    <div class="advisor d-none d-md-block">
         <div class="container" style="padding-top: 5rem; padding-bottom: 10rem;">
             <h3>Advisors</h3>
             <div class="row" style="padding-top: 3rem;">
@@ -141,13 +146,51 @@
         </div>
     </div>
 
-    <!-- Bottom -->
-    <div class="container bottom">
+    <!-- Mobile Version -->
+    <div class="advisor d-block d-md-none">
+        <div class="container" style="padding-bottom: 5rem;">
+            <h3>Advisors</h3>
+            <div class="row advisor-row"">
+                <div class="col-12">
+                    <div class="advisor-card-mobile">
+                        <img src="{{ asset('images/about/image2.png') }}" class="advisor-image-mobile">
+                        <div class="advisor-content-mobile">
+                            <h4 class="advisor-name-mobile">Dr. Renard Siew</h4>
+                            <p class="advisor-title-mobile">Climate Governance Advisor | Sustainability Leader</p>
+                            <p class="advisor-description-mobile">A recognized sustainability and climate-governance expert with experience across infrastructure, finance, and carbon markets. Provides strategic guidance to align Carbon AI with ISSB, IFRS, CDP, and the Greenhouse Gas Protocol, ensuring the platform upholds global standards of credibility, compliance, and transparency.</p>
+                            <div class="advisor-linkedin-mobile">
+                                <a href="#" class="linkedin-btn-mobile">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom - Desktop -->
+    <div class="container bottom d-none d-md-block">
         <h1 style="font-weight: 700; font-size: 1.875rem; line-height: 40px;">We are building the trust layer for ESG software, setting a new standard for verified sustainability data.</h1>
         <p>Collaborate with us through pilots, partnerships, or integrations and be part of the movement to make audit-ready climate data the norm for every organization.</p>
         <div class="mt-5">
             <a href="#" class="start-for-free-btn">Start for Free</a>
             <a href="#" class="request-demo-btn">Request a Demo</a>
+        </div>
+    </div>
+
+    <!-- Bottom - Mobile -->
+    <div class="container bottom-mobile d-flex d-md-none mb-5">
+        <div class="bottom-card-mobile">
+            <h1>We are building the trust layer for ESG software, setting a new standard for verified sustainability data.</h1>
+            <p>Collaborate with us through pilots, partnerships, or integrations and be part of the movement to make audit-ready climate data the norm for every organization.</p>
+            <div class="bottom-buttons mt-4" style="display: flex; flex-direction: column; align-items: center;">
+                <a href="#" class="start-for-free-btn">Start for Free</a>
+                <a href="#" class="request-demo-btn mt-3">Request a Demo</a>
+            </div>
         </div>
     </div>
 </div>
