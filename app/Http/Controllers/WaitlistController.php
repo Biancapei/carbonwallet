@@ -47,14 +47,29 @@ class WaitlistController extends Controller
             ]);
 
             // Send confirmation email
-            Notification::route('mail', $request->email)
-                ->notify(new WaitlistConfirmation($waitlistEntry));
+            try {
+                Notification::route('mail', $request->email)
+                    ->notify(new WaitlistConfirmation($waitlistEntry));
 
-            // Update email sent status
-            $waitlistEntry->update([
-                'email_sent' => true,
-                'email_sent_at' => now(),
-            ]);
+                // Update email sent status
+                $waitlistEntry->update([
+                    'email_sent' => true,
+                    'email_sent_at' => now(),
+                ]);
+
+                Log::info('Waitlist confirmation email sent successfully to: ' . $request->email);
+
+            } catch (\Exception $emailError) {
+                // Log email sending error but don't fail the request
+                Log::error('Email sending failed: ' . $emailError->getMessage());
+                Log::error('Email error stack: ' . $emailError->getTraceAsString());
+
+                // Mark email as not sent
+                $waitlistEntry->update([
+                    'email_sent' => false,
+                    'email_sent_at' => null,
+                ]);
+            }
 
             return redirect()->back()->with('success', 'Thank you for joining our waitlist! Check your email for confirmation.');
 
@@ -64,7 +79,7 @@ class WaitlistController extends Controller
             Log::error('Stack trace: ' . $e->getTraceAsString());
 
             return redirect()->back()
-                ->withErrors(['error' => 'Something went wrong. Please try again. Error: ' . $e->getMessage()])
+                ->withErrors(['error' => 'Something went wrong. Please try again.'])
                 ->withInput();
         }
     }

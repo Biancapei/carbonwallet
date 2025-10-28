@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\EquipmentController;
@@ -10,6 +11,43 @@ use App\Http\Controllers\Auth\SocialAuthController;
 // Waitlist routes
 Route::get('/waitlist', [App\Http\Controllers\WaitlistController::class, 'index'])->name('waitlist');
 Route::post('/waitlist', [App\Http\Controllers\WaitlistController::class, 'store'])->name('waitlist.store');
+
+// Email test route
+Route::get('/test-email-config', function () {
+    try {
+        // Test SMTP configuration
+        $mailer = config('mail.mailers.smtp');
+        $mailFrom = config('mail.from');
+
+        // Attempt to send a test email
+        $testEmail = request('email', 'test@example.com');
+
+        Mail::raw('This is a test email from Carbon AI. If you receive this, your email configuration is working!', function($message) use ($testEmail, $mailFrom) {
+            $message->to($testEmail)
+                    ->subject('Test Email from Carbon AI')
+                    ->from($mailFrom['address'], $mailFrom['name']);
+        });
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Test email sent successfully!',
+            'mailer' => env('MAIL_MAILER'),
+            'host' => env('MAIL_HOST'),
+            'from' => $mailFrom,
+            'to' => $testEmail
+        ]);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Failed to send email',
+            'error' => $e->getMessage(),
+            'mailer' => env('MAIL_MAILER'),
+            'host' => env('MAIL_HOST'),
+            'trace' => $e->getTraceAsString()
+        ], 500);
+    }
+})->name('test.email');
 
 // Health check for Railway
 Route::get('/health', function () {
