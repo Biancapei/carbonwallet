@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to CarbonWallet Waitlist!</title>
+    <title>Welcome to CarbonAI Waitlist!</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -76,18 +76,18 @@
         <div class="content">
             <!-- Banner Image -->
             <div class="banner">
-                <img src="http://carbonwallet.test:8002/images/logo.svg" alt="CarbonWallet">
+                <img src="https://carbon2030.ai/images/logo.svg">
             </div>
 
             <!-- Greeting -->
             <h1>Hello {{ $waitlistEntry->name ?: 'there' }}!</h1>
 
             <!-- Content -->
-            <p>Thank you for joining the CarbonWallet waitlist!</p>
+            <p>Thank you for joining the CarbonAI waitlist!</p>
             <p>We're excited to have you on board as we work towards launching our carbon footprint tracking platform.</p>
-            <p>We'll keep you updated on our progress and notify you as soon as CarbonWallet is ready for you to use.</p>
+            <p>We'll keep you updated on our progress and notify you as soon as CarbonAI is ready for you to use.</p>
             <p>If you have any questions in the meantime, feel free to reach out to us.</p>
-            <p><strong>Best regards, <br>The CarbonWallet Team</strong></p>
+            <p><strong>Best regards, <br>The CarbonAI Team</strong></p>
         </div>
 
         <div class="footer">
