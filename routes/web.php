@@ -18,33 +18,43 @@ Route::get('/test-email-config', function () {
         // Test SMTP configuration
         $mailer = config('mail.mailers.smtp');
         $mailFrom = config('mail.from');
-
-        // Attempt to send a test email
         $testEmail = request('email', 'test@example.com');
 
+        // First, just show current configuration
+        $config = [
+            'status' => 'checking',
+            'mailer' => env('MAIL_MAILER', 'not set'),
+            'host' => env('MAIL_HOST', 'not set'),
+            'port' => env('MAIL_PORT', 'not set'),
+            'username' => env('MAIL_USERNAME', 'not set'),
+            'encryption' => env('MAIL_ENCRYPTION', 'not set'),
+            'from_address' => env('MAIL_FROM_ADDRESS', 'not set'),
+            'from_name' => env('MAIL_FROM_NAME', 'not set'),
+            'config_from' => $mailFrom,
+        ];
+
+        // Attempt to send test email
         Mail::raw('This is a test email from Carbon AI. If you receive this, your email configuration is working!', function($message) use ($testEmail, $mailFrom) {
             $message->to($testEmail)
                     ->subject('Test Email from Carbon AI')
                     ->from($mailFrom['address'], $mailFrom['name']);
         });
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Test email sent successfully!',
-            'mailer' => env('MAIL_MAILER'),
-            'host' => env('MAIL_HOST'),
-            'from' => $mailFrom,
-            'to' => $testEmail
-        ]);
+        $config['status'] = 'success';
+        $config['message'] = 'Test email sent successfully!';
+        $config['to'] = $testEmail;
+
+        return response()->json($config);
 
     } catch (\Exception $e) {
         return response()->json([
             'status' => 'error',
             'message' => 'Failed to send email',
             'error' => $e->getMessage(),
-            'mailer' => env('MAIL_MAILER'),
-            'host' => env('MAIL_HOST'),
-            'trace' => $e->getTraceAsString()
+            'mailer' => env('MAIL_MAILER', 'not set'),
+            'host' => env('MAIL_HOST', 'not set'),
+            'error_class' => get_class($e),
+            'error_file' => $e->getFile() . ':' . $e->getLine(),
         ], 500);
     }
 })->name('test.email');

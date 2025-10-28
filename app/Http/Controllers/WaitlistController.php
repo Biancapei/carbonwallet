@@ -48,6 +48,9 @@ class WaitlistController extends Controller
 
             // Send confirmation email
             try {
+                Log::info('Attempting to send email to: ' . $request->email);
+                Log::info('Mail configuration - Driver: ' . config('mail.default') . ', Host: ' . config('mail.mailers.smtp.host'));
+
                 Notification::route('mail', $request->email)
                     ->notify(new WaitlistConfirmation($waitlistEntry));
 
@@ -57,12 +60,15 @@ class WaitlistController extends Controller
                     'email_sent_at' => now(),
                 ]);
 
-                Log::info('Waitlist confirmation email sent successfully to: ' . $request->email);
+                Log::info('✅ Email sent successfully to: ' . $request->email);
 
             } catch (\Exception $emailError) {
                 // Log email sending error but don't fail the request
-                Log::error('Email sending failed: ' . $emailError->getMessage());
-                Log::error('Email error stack: ' . $emailError->getTraceAsString());
+                Log::error('❌ EMAIL SENDING FAILED for: ' . $request->email);
+                Log::error('Error message: ' . $emailError->getMessage());
+                Log::error('Error class: ' . get_class($emailError));
+                Log::error('Error file: ' . $emailError->getFile() . ':' . $emailError->getLine());
+                Log::error('Error stack: ' . $emailError->getTraceAsString());
 
                 // Mark email as not sent
                 $waitlistEntry->update([
