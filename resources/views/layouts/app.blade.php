@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CARBON AI</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('images/logoo.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/logo_v1.svg') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
     {{-- Google Fonts - Montserrat --}}
