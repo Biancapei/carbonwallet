@@ -15,7 +15,7 @@
 .blog-tabs-section {
     position: relative;
     z-index: 2;
-    margin-bottom: 15rem;
+    padding: 10rem 3rem;
 }
 
 .tab-navigation {
@@ -111,6 +111,12 @@
     transform: translateY(-5px);
     border-color: rgba(22, 211, 202, 0.3);
     box-shadow: 0 10px 30px rgba(22, 211, 202, 0.1);
+}
+
+.blog-card-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
 }
 
 .blog-card-image img {
@@ -230,13 +236,18 @@
 }
 
 /* Subscribe Section */
-.subscribe {
+.bottom h2 {
+    font-weight: 700;
+    font-size: 1.875rem;
+    line-height: 40px;
+}
+
+/* .subscribe {
     background: #020103;
     position: relative;
     overflow: hidden;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    margin-bottom: 15rem;
+    margin: 15rem;
+    padding: 8rem;
     border: 1px solid #272727;
     border-radius: 5px;
 }
@@ -365,7 +376,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
+} */
 
 /* Mobile Responsiveness for Blog Tabs */
 @media (max-width: 1200px) {
@@ -381,13 +392,17 @@
 }
 
 @media (max-width: 768px) {
+    .blog-tabs-section-mobile {
+        margin-top: -15rem;
+    }
+
     .tab-navigation {
         gap: 0.5rem;
         margin-bottom: 2rem;
     }
 
     .tab-content {
-        padding: 2rem 1.5rem;
+        padding: 2rem 1.5rem 10rem;
     }
 
     .tab-btn {
@@ -412,12 +427,13 @@
         font-size: 0.85rem;
     }
 
-    /* Mobile Blog Cards Grid - 2x2 */
+    /* Mobile Blog Cards Grid - 1 column */
     .blog-cards-grid-mobile {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
         padding: 0 0.5rem;
+        max-width: 100%;
     }
 
     .blog-card-mobile {
@@ -431,6 +447,9 @@
         height: 100%;
         display: flex;
         flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .blog-card-image-mobile {
@@ -471,9 +490,9 @@
 
     .blog-title-mobile {
         color: #16D3CA;
-        font-size: 14px;
+        font-size: 20px;
         font-weight: 600;
-        line-height: 16px;
+        line-height: 25px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;

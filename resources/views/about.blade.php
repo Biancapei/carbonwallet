@@ -23,7 +23,7 @@
     </div>
 
     <!-- Display Images -->
-    <div class="container-fluid display-section p-0" style="margin-top: -20rem;">
+    <div class="container display-section p-0" style="margin-top: -20rem;">
         <div class="about-wrapper">
             <img src="{{ asset('images/about/pic1.svg') }}" >
         </div>
@@ -124,7 +124,7 @@
     <div class="advisor d-none d-md-block">
         <div class="container" style="padding-top: 5rem; padding-bottom: 10rem;">
             <h3>Advisors</h3>
-            <div class="row" style="padding-top: 3rem;">
+            <div class="row" style="padding: 2rem 5rem 0rem;">
                 <div class="col-12">
                     <div class="advisor-card">
                         <img src="{{ asset('images/about/image2.png') }}" class="advisor-image px-4 py-4">
@@ -174,22 +174,22 @@
 
     <!-- Bottom - Desktop -->
     <div class="container bottom d-none d-md-block">
-        <h1 style="font-weight: 700; font-size: 1.875rem; line-height: 40px;">We are building the trust layer for ESG software, setting a new standard for verified sustainability data.</h1>
+        <h2>We are building the trust layer for ESG software, setting a new standard for verified sustainability data.</h2>
         <p>Collaborate with us through pilots, partnerships, or integrations and be part of the movement to make audit-ready climate data the norm for every organization.</p>
         <div class="mt-5">
-            <a href="#" class="start-for-free-btn">Start for Free</a>
-            <a href="#" class="request-demo-btn">Request a Demo</a>
+            <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a>
+            <a href="{{ url('/waitlist') }}" class="request-demo-btn">Request a Demo</a>
         </div>
     </div>
 
     <!-- Bottom - Mobile -->
     <div class="container bottom-mobile d-flex d-md-none mb-5">
         <div class="bottom-card-mobile">
-            <h1>We are building the trust layer for ESG software, setting a new standard for verified sustainability data.</h1>
+            <h6>We are building the trust layer for ESG software, setting a new standard for verified sustainability data.</h6>
             <p>Collaborate with us through pilots, partnerships, or integrations and be part of the movement to make audit-ready climate data the norm for every organization.</p>
             <div class="bottom-buttons mt-4" style="display: flex; flex-direction: column; align-items: center;">
-                <a href="#" class="start-for-free-btn">Start for Free</a>
-                <a href="#" class="request-demo-btn mt-3">Request a Demo</a>
+                <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a>
+                <a href="{{ url('/waitlist') }}" class="request-demo-btn mt-3">Request a Demo</a>
             </div>
         </div>
     </div>

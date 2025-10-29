@@ -116,16 +116,15 @@
                                 <img src="{{ asset('images/blog1.jpg') }}" alt="Blog Post">
                             </div>
                             <div class="blog-card-content">
-                                <div class="author">
-                                    <div class="blog-author">Alex Thompson</div>
-                                    <div class="blog-date">Dec 15, 2024</div>
+                                <div class="blog-content-wrapper">
+                                    <div class="author mt-3">
+                                        <div class="blog-author">Author name</div>
+                                        <div class="blog-date">Date</div>
+                                    </div>
+                                    <h3 class="blog-title">Understanding Scope 1, 2, and 3 Emissions</h3>
+                                    <p class="blog-excerpt">A comprehensive guide to carbon footprint measurement and reporting standards.</p>
                                 </div>
-                                <h3 class="blog-title">Understanding Scope 1, 2, and 3 Emissions</h3>
-                                <p class="blog-excerpt">A comprehensive guide to carbon footprint measurement and reporting standards.</p>
-                                <div class="blog-meta">
-                                    <span class="blog-date">Dec 15, 2024</span>
-                                    <span class="blog-read-time">5 min read</span>
-                                </div>
+                                <h6 class="blog-read-more">Read More <img src="/images/home/arrow.svg"></h6>
                             </div>
                         </div>
 
@@ -134,16 +133,15 @@
                                 <img src="{{ asset('images/blog2.jpg') }}" alt="Blog Post">
                             </div>
                             <div class="blog-card-content">
-                                <div class="author">
-                                    <div class="blog-author">Lisa Wang</div>
-                                    <div class="blog-date">Dec 5, 2024</div>
+                                <div class="blog-content-wrapper">
+                                    <div class="author mt-3">
+                                        <div class="blog-author">Author name</div>
+                                        <div class="blog-date">Date</div>
+                                    </div>
+                                    <h3 class="blog-title">Carbon Footprint Calculation Methods</h3>
+                                    <p class="blog-excerpt">Different approaches to calculating your organization's carbon footprint.</p>
                                 </div>
-                                <h3 class="blog-title">Carbon Footprint Calculation Methods</h3>
-                                <p class="blog-excerpt">Different approaches to calculating your organization's carbon footprint.</p>
-                                <div class="blog-meta">
-                                    <span class="blog-date">Dec 5, 2024</span>
-                                    <span class="blog-read-time">8 min read</span>
-                                </div>
+                                <h6 class="blog-read-more">Read More <img src="/images/home/arrow.svg"></h6>
                             </div>
                         </div>
                     </div>
@@ -157,16 +155,15 @@
                                 <img src="{{ asset('images/blog2.jpg') }}" alt="Blog Post">
                             </div>
                             <div class="blog-card-content">
-                                <div class="author">
-                                    <div class="blog-author">James Wilson</div>
-                                    <div class="blog-date">Dec 12, 2024</div>
+                                <div class="blog-content-wrapper">
+                                    <div class="author mt-3">
+                                        <div class="blog-author">Author name</div>
+                                        <div class="blog-date">Date</div>
+                                    </div>
+                                    <h3 class="blog-title">ESG Reporting Best Practices for 2025</h3>
+                                    <p class="blog-excerpt">Learn how to create compelling ESG reports that drive stakeholder engagement.</p>
                                 </div>
-                                <h3 class="blog-title">ESG Reporting Best Practices for 2025</h3>
-                                <p class="blog-excerpt">Learn how to create compelling ESG reports that drive stakeholder engagement.</p>
-                                <div class="blog-meta">
-                                    <span class="blog-date">Dec 12, 2024</span>
-                                    <span class="blog-read-time">7 min read</span>
-                                </div>
+                                <h6 class="blog-read-more">Read More <img src="/images/home/arrow.svg"></h6>
                             </div>
                         </div>
 
@@ -175,39 +172,37 @@
                                 <img src="{{ asset('images/blog3.jpg') }}" alt="Blog Post">
                             </div>
                             <div class="blog-card-content">
-                                <div class="author">
-                                    <div class="blog-author">Maria Garcia</div>
-                                    <div class="blog-date">Dec 3, 2024</div>
+                                <div class="blog-content-wrapper">
+                                    <div class="author mt-3">
+                                        <div class="blog-author">Author name</div>
+                                        <div class="blog-date">Date</div>
+                                    </div>
+                                    <h3 class="blog-title">ESG Data Collection Strategies</h3>
+                                    <p class="blog-excerpt">Effective methods for gathering and validating ESG data across your organization.</p>
                                 </div>
-                                <h3 class="blog-title">ESG Data Collection Strategies</h3>
-                                <p class="blog-excerpt">Effective methods for gathering and validating ESG data across your organization.</p>
-                                <div class="blog-meta">
-                                    <span class="blog-date">Dec 3, 2024</span>
-                                    <span class="blog-read-time">6 min read</span>
-                                </div>
+                                <h6 class="blog-read-more">Read More <img src="/images/home/arrow.svg"></h6>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                 <!-- Net Zero Tab -->
-                 <div id="net-zero" class="tab-panel">
+                <!-- Net Zero Tab -->
+                <div id="net-zero" class="tab-panel">
                     <div class="blog-cards-grid">
                         <div class="blog-card">
                             <div class="blog-card-image">
                                 <img src="{{ asset('images/blog2.jpg') }}" alt="Blog Post">
                             </div>
                             <div class="blog-card-content">
-                                <div class="author">
-                                    <div class="blog-author">Robert Brown</div>
-                                    <div class="blog-date">Nov 25, 2024</div>
+                                <div class="blog-content-wrapper">
+                                    <div class="author mt-3">
+                                        <div class="blog-author">Author name</div>
+                                        <div class="blog-date">Date</div>
+                                    </div>
+                                    <h3 class="blog-title">Net Zero Roadmap for Enterprises</h3>
+                                    <p class="blog-excerpt">Step-by-step guide to developing a comprehensive net zero strategy.</p>
                                 </div>
-                                <h3 class="blog-title">Net Zero Roadmap for Enterprises</h3>
-                                <p class="blog-excerpt">Step-by-step guide to developing a comprehensive net zero strategy.</p>
-                                <div class="blog-meta">
-                                    <span class="blog-date">Nov 25, 2024</span>
-                                    <span class="blog-read-time">10 min read</span>
-                                </div>
+                                <h6 class="blog-read-more">Read More <img src="/images/home/arrow.svg"></h6>
                             </div>
                         </div>
 
@@ -216,16 +211,15 @@
                                 <img src="{{ asset('images/blog3.jpg') }}" alt="Blog Post">
                             </div>
                             <div class="blog-card-content">
-                                <div class="author">
-                                    <div class="blog-author">Jennifer Lee</div>
-                                    <div class="blog-date">Nov 22, 2024</div>
+                                <div class="blog-content-wrapper">
+                                    <div class="author mt-3">
+                                        <div class="blog-author">Author name</div>
+                                        <div class="blog-date">Date</div>
+                                    </div>
+                                    <h3 class="blog-title">Carbon Offsetting Strategies</h3>
+                                    <p class="blog-excerpt">Understanding when and how to use carbon offsets in your net zero journey.</p>
                                 </div>
-                                <h3 class="blog-title">Carbon Offsetting Strategies</h3>
-                                <p class="blog-excerpt">Understanding when and how to use carbon offsets in your net zero journey.</p>
-                                <div class="blog-meta">
-                                    <span class="blog-date">Nov 22, 2024</span>
-                                    <span class="blog-read-time">7 min read</span>
-                                </div>
+                                <h6 class="blog-read-more">Read More <img src="/images/home/arrow.svg"></h6>
                             </div>
                         </div>
                     </div>
@@ -239,16 +233,15 @@
                                 <img src="{{ asset('images/blog2.jpg') }}" alt="Blog Post">
                             </div>
                             <div class="blog-card-content">
-                                <div class="author">
-                                    <div class="blog-author">Thomas Anderson</div>
-                                    <div class="blog-date">Nov 15, 2024</div>
+                                <div class="blog-content-wrapper">
+                                    <div class="author mt-3">
+                                        <div class="blog-author">Author name</div>
+                                        <div class="blog-date">Date</div>
+                                    </div>
+                                    <h3 class="blog-title">Industry Trends in Carbon Management</h3>
+                                    <p class="blog-excerpt">Latest trends and developments in the carbon management industry.</p>
                                 </div>
-                                <h3 class="blog-title">Industry Trends in Carbon Management</h3>
-                                <p class="blog-excerpt">Latest trends and developments in the carbon management industry.</p>
-                                <div class="blog-meta">
-                                    <span class="blog-date">Nov 15, 2024</span>
-                                    <span class="blog-read-time">5 min read</span>
-                                </div>
+                                <h6 class="blog-read-more">Read More <img src="/images/home/arrow.svg"></h6>
                             </div>
                         </div>
 
@@ -257,16 +250,15 @@
                                 <img src="{{ asset('images/blog3.jpg') }}" alt="Blog Post">
                             </div>
                             <div class="blog-card-content">
-                                <div class="author">
-                                    <div class="blog-author">Amanda Taylor</div>
-                                    <div class="blog-date">Nov 12, 2024</div>
+                                <div class="blog-content-wrapper">
+                                    <div class="author mt-3">
+                                        <div class="blog-author">Author name</div>
+                                        <div class="blog-date">Date</div>
+                                    </div>
+                                    <h3 class="blog-title">IFRS S2 Climate Disclosure Guide</h3>
+                                    <p class="blog-excerpt">Comprehensive guide to IFRS S2 climate disclosure requirements.</p>
                                 </div>
-                                <h3 class="blog-title">Future of Climate Technology</h3>
-                                <p class="blog-excerpt">Predictions and insights into the future of climate technology solutions.</p>
-                                <div class="blog-meta">
-                                    <span class="blog-date">Nov 12, 2024</span>
-                                    <span class="blog-read-time">7 min read</span>
-                                </div>
+                                <h6 class="blog-read-more">Read More <img src="/images/home/arrow.svg"></h6>
                             </div>
                         </div>
                     </div>
@@ -357,8 +349,28 @@
         </div>
     </div>
 
+    <!-- Bottom - Desktop Version -->
+    <div class="container bottom d-none d-md-block">
+        <h2>Join Our Waitlist</h2>
+        <div class="my-5">
+            <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a>
+            <a href="{{ url('/waitlist') }}" class="request-demo-btn">Request a Demo</a>
+        </div>
+    </div>
+
+    <!-- Bottom - Mobile Version -->
+    <div class="container bottom-mobile d-flex d-md-none mb-5">
+        <div class="bottom-card-mobile">
+            <h2>Join Our Waitlist</h2>
+            <div class="bottom-buttons mt-4" style="display: flex; flex-direction: column; align-items: center;">
+                <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a>
+                <a href="{{ url('/waitlist') }}" class="request-demo-btn mt-3">Request a Demo</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Subscribe - Desktop -->
-    <div class="container subscribe px-5 d-none d-md-block">
+    {{-- <div class="container subscribe px-5 d-none d-md-block">
         <h1>Subscribe</h1>
         <p class="my-4">Receive monthly insights on carbon accounting, ESG software, climate technology, and credible decarbonization strategies for enterprises and SMEs.</p>
         <div class="subscribe-form my-5">
@@ -375,10 +387,10 @@
         <div class="" style="border-top: 1px solid #595959; padding-top: 3rem;">
             <p>Carbon AI publishes guidance and analysis on ESG software, carbon accounting, climate technology adoption, carbon footprint measurement, decarbonization planning, and verified pathways to Net Zero.</p>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Subscribe - Mobile -->
-    <div class="container subscribe-mobile d-flex d-md-none my-5">
+    {{-- <div class="container subscribe-mobile d-flex d-md-none my-5">
         <div class="subscribe-card-mobile">
             <h1>Subscribe</h1>
             <p>Receive monthly insights on carbon accounting, ESG software, climate technology, and credible decarbonization strategies for enterprises and SMEs.</p>
@@ -393,7 +405,7 @@
                 <p>Carbon AI publishes guidance and analysis on ESG software, carbon accounting, climate technology adoption, carbon footprint measurement, decarbonization planning, and verified pathways to Net Zero.</p>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 <script>

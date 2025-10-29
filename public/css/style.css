@@ -1,6 +1,8 @@
 /* Navbar Styles */
 .navbar {
-    background: #9E9E9E3B;
+    background: #000;
+    border-bottom: 0 !important;
+    position: fixed !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,7 +54,7 @@
 .navbar-nav {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 4rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -93,6 +95,10 @@
 .dropdown-toggle.active::after,
 .nav-item.active .dropdown-toggle::after {
     border-top-color: #1AB3C5 !important;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
 }
 
 
@@ -423,7 +429,7 @@ body {
 }
 
 .header-btn {
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .header h1 {
@@ -469,7 +475,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem 0;
+    padding: 2rem 2rem;
 }
 
 .display-image {
@@ -646,17 +652,6 @@ body {
     box-shadow: 0px 10px 15px -3px #2BD7BD66, 0px 4px 6px -4px #2BD7BD66;
     border-radius: 12px;
     border: 1px solid rgba(43, 215, 189, 0.3);
-}
-
-
-.ai-bottom h1 {
-    font-weight: 700;
-    font-size: 1.875rem;
-    color: #fff;
-    line-height: 40px;
-    position: relative;
-    z-index: 3;
-    padding: 1rem;
 }
 
 /* Value Proposition Section */
@@ -850,6 +845,15 @@ body {
     padding-right: 15px;
 }
 
+/* Force 4 cards in one row on tablet and desktop screens */
+@media (min-width: 768px) {
+    .cards .col-12.col-sm-6.col-lg-3 {
+        flex: 0 0 20% !important;
+        max-width: 20% !important;
+        margin: 0;
+    }
+}
+
 
 .accordion {
     --bs-accordion-color: rgb(255, 255, 255) !important;
@@ -894,7 +898,7 @@ body {
     font-weight: 600;
 }
 
-.dropdown h1 {
+.dropdown h2 {
     color: #00978f;
     text-align: center;
     font-size: 4rem;
@@ -917,7 +921,7 @@ body {
 }
 
 .cards, .insights {
-    padding: 10rem 10rem;
+    padding: 5rem 3rem;
 }
 
 .cards .row,
@@ -925,6 +929,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
+    justify-content: center;
 }
 
 .cards .card, .insights .card {
@@ -957,6 +962,7 @@ body {
     display: flex;
 }
 
+
 .card-body {
     padding: 1.5rem;
 }
@@ -985,7 +991,7 @@ body {
     padding-bottom: 10rem;
 }
 
-.differentiation h1 {
+.differentiation h2 {
     font-weight: 700;
     font-size: 2.75rem;
     background: linear-gradient(90deg, #16D3CA 0%, #1AB3C5 50%, #0FA3B8 100%);
@@ -1151,6 +1157,15 @@ body {
     color: #fff;
 }
 
+.greenball-side-left-top {
+    max-width: 100%;
+    position: absolute;
+    left: 0;
+    top: 455%;
+    transform: scaleX(-1);
+    z-index: 1;
+}
+
 /* Bottom Section - Dark Theme with Grid */
 .bottom, .ai-bottom {
     background: #0A0A0A;
@@ -1190,7 +1205,7 @@ body {
     z-index: 2;
 }
 
-.bottom h1 {
+.bottom h2 {
     font-weight: 800;
     font-size: 2.8rem;
     color: #fff;
@@ -1358,7 +1373,90 @@ body {
     transform: translateY(1px);
 }
 
+@media (max-width: 1300px) {
+    .header h1, .insights h3, .value-proposition h3, .differentiation h2, .bottom h2 {
+        font-size: 2rem;
+    }
+
+    .header h3, .differentiation h3, .request-demo-btn, .start-for-free-btn, .insights h5 {
+        font-size: 1rem;
+        line-height: 30px;
+    }
+
+    .insights-card h4 {
+        font-size: 1.25rem;
+    }
+
+    .insights-content-row a:first-child {
+        font-size: 1rem;
+    }
+
+    .insights-card-body {
+        padding: 1rem;
+    }
+
+    .insights-image {
+        height: 300px;
+    }
+
+    .insights .row {
+        gap: 0;
+    }
+
+    .greenball-side-right {
+        top: 80% !important;
+    }
+
+    .value-proposition-content {
+        padding: 2rem 0;
+    }
+
+    .cards, .insights {
+        padding: 5rem 0rem;
+    }
+
+    .differentiation {
+        padding: 0 5rem;
+    }
+
+    .differentiation .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .differentiation-content {
+        padding-top: 5rem;
+        padding-bottom: 10rem;
+    }
+
+    .cards .card h4 {
+        font-size: 1.25rem !important;
+    }
+
+    .logo-slider img {
+        max-height: 40px;
+    }
+
+    .logos-wrapper {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
 @media (max-width: 992px) {
+    /* Keep 3 insights cards in one row for tablet widths */
+    .insights .row {
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+    }
+
+    .insights .col-12.col-sm-6.col-lg-4 {
+        flex: 0 0 33.333% !important;
+        max-width: 33.333% !important;
+        margin: 0 !important;
+    }
   .logos-wrapper {
     transform: translateX(15px);
   }
@@ -1430,7 +1528,7 @@ body {
     position: relative;
 }
 
-.greenball-side {
+.greenball-side, .greenball-side-right {
     max-width: 100%;
     position: absolute;
     right: 0;
@@ -1501,8 +1599,20 @@ body {
     }
 
     .navbar-actions .start-for-free-btn, .navbar-actions .request-demo-btn {
-        padding: 0.5rem 1rem;
+        padding: 0 1rem;
         font-size: 10px;
+    }
+
+    .cards .card-body {
+        padding: .5rem;
+    }
+
+    .greenball-side-left-top {
+        top: 200%;
+    }
+
+    .start-for-free-btn, .request-demo-btn {
+        padding: .4rem 1.75rem;
     }
 }
 
@@ -1524,7 +1634,7 @@ body {
         padding: 0rem 2rem;
     }
 
-    .value-proposition h3, .differentiation h1, .insights-mobile h3 {
+    .value-proposition h3, .differentiation 2, .insights-mobile h3 {
         font-size: 18px;
     }
 
@@ -1855,7 +1965,7 @@ body {
         z-index: 3;
     }
 
-    .bottom-card-mobile h1 {
+    .bottom-card-mobile h2 {
         font-size: 15px;
         font-weight: 800;
         position: relative;

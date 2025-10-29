@@ -83,11 +83,12 @@
             <h1>Hello {{ $waitlistEntry->name ?: 'there' }}!</h1>
 
             <!-- Content -->
-            <p>Thank you for joining the CarbonAI waitlist!</p>
+            <p>Thank you for joining the Carbon AI waitlist!</p>
             <p>We're excited to have you on board as we work towards launching our carbon footprint tracking platform.</p>
-            <p>We'll keep you updated on our progress and notify you as soon as CarbonAI is ready for you to use.</p>
+            <p>We'll keep you updated on our progress and notify you as soon as Carbon AI is ready for you to use.</p>
             <p>If you have any questions in the meantime, feel free to reach out to us.</p>
-            <p><strong>Best regards, <br>The CarbonAI Team</strong></p>
+            <p><strong>Best regards, <br>The Carbon AI Team</strong></p>
+
         </div>
 
         <div class="footer">

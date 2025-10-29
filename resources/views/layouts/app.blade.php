@@ -54,8 +54,8 @@
 
             <!-- Action Buttons (Desktop) -->
             <div class="navbar-actions d-none d-lg-flex">
-                <a href="#" class="start-for-free-btn">Start for Free</a>
-                <a href="#" class="request-demo-btn">Request a Demo</a>
+                <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a>
+                <a href="{{ url('/waitlist') }}" class="request-demo-btn">Request a Demo</a>
             </div>
 
             <!-- Hamburger Menu Button (Mobile) -->
@@ -74,46 +74,26 @@
                         <a class="nav-link dropdown-toggle" href="#" id="aiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             AI
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="aiDropdown">
+                        {{-- <ul class="dropdown-menu" aria-labelledby="aiDropdown">
                             <li><a class="dropdown-item" href="#">AI & Validation Engine</a></li>
-                            <li><a class="dropdown-item" href="#">Interoperability & Connectors</a></li>
-                            <li><a class="dropdown-item" href="#">Engagement Layer</a></li>
-                            <li><a class="dropdown-item" href="#">Data Exchange Hub</a></li>
-                        </ul>
+                        </ul> --}}
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="industriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Industries
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="industriesDropdown">
-                            <li><a class="dropdown-item" href="#">Finance</a></li>
-                            <li><a class="dropdown-item" href="#">Hospitality</a></li>
-                            <li><a class="dropdown-item" href="#">Logistics</a></li>
-                            <li><a class="dropdown-item" href="#">Consumer Goods</a></li>
-                        </ul>
-                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="insightsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Insights
+                            Blogs
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="insightsDropdown">
-                            <li><a class="dropdown-item" href="{{ url('/blogs') }}">Blog</a></li>
-                            <li><a class="dropdown-item" href="#">Glossary</a></li>
-                            <li><a class="dropdown-item" href="#">Events</a></li>
+                            {{-- <li><a class="dropdown-item" href="{{ url('/blogs') }}">Blog</a></li> --}}
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="companyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Company
+                            About
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="companyDropdown">
+                        {{-- <ul class="dropdown-menu" aria-labelledby="companyDropdown">
                             <li><a class="dropdown-item" href="{{ url('/about') }}">About</a></li>
-                            <li><a class="dropdown-item" href="#">Careers</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/contact') }}">Contact</a></li>
-                        </ul>
+                        </ul> --}}
                     </li>
                 </ul>
 

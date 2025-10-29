@@ -10,13 +10,19 @@
         </div>
         <div class="container">
             <div class="row-centered">
-                <div class="header">
+                <div class="header d-none d-md-block">
                     <h1>AI for Net Zero</h1>
                     <h3>Automated, high-quality carbon and ESG data for every organization.<br>Accelerate your path to Net Zero with confidence and verified accuracy.</h3>
                 </div>
+
+                {{-- Mobile --}}
+                <div class="header d-block d-md-none" style="margin-top: -10rem;">
+                    <h1>AI for Net Zero</h1>
+                    <h3>Automated, high-quality carbon and ESG data for every organization.<br> <br>Accelerate your path to Net Zero with confidence and verified accuracy.</h3>
+                </div>
                 <div class="header-btn mt-5">
-                    <a href="#" class="start-for-free-btn">Start for Free</a> &nbsp;&nbsp;
-                    <a href="#" class="request-demo-btn">Request a Demo</a>
+                    <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a> &nbsp;&nbsp;
+                    <a href="{{ url('/waitlist') }}" class="request-demo-btn">Request a Demo</a>
                 </div>
             </div>
         </div>
@@ -70,7 +76,7 @@
     </div>
 
     <!-- Interoperability and Connectors -->
-    <div class="interoperability-section d-md-block d-none">
+    <div class="interoperability-section d-md-block d-none" style="margin-top: 7rem;">
         <div class="container">
             <div class="row align-items-center" style="padding-top: 5rem; padding-bottom: 5rem; min-height: 600px;">
                 <div class="col-12 col-md-6 d-flex justify-content-center">
@@ -253,20 +259,20 @@
 
     <!-- Bottom - Desktop -->
     <div class="container bottom d-none d-md-block">
-        <h1 style="font-weight: 700; font-size: 1.875rem; line-height: 40px;">Experience the power of AI-driven carbon accounting built for assurance,<br> engagement, and measurable impact.</h1>
+        <h2>Experience the power of AI-driven carbon accounting built for assurance, engagement, and measurable impact.</h2>
         <div class="my-5">
-            <a href="#" class="start-for-free-btn">Start for Free</a>
-            <a href="#" class="request-demo-btn">Request a Demo</a>
+            <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a>
+            <a href="{{ url('/waitlist') }}" class="request-demo-btn">Request a Demo</a>
         </div>
     </div>
 
     <!-- Bottom - Mobile -->
     <div class="container bottom-mobile d-flex d-md-none mb-5">
         <div class="bottom-card-mobile">
-            <h1>Experience the power of AI-driven carbon accounting built for assurance, engagement, and measurable impact.</h1>
+            <h6>Experience the power of AI-driven carbon accounting built for assurance, engagement, and measurable impact.</h6>
             <div class="bottom-buttons mt-4" style="display: flex; flex-direction: column; align-items: center;">
-                <a href="#" class="start-for-free-btn">Start for Free</a>
-                <a href="#" class="request-demo-btn mt-3">Request a Demo</a>
+                <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a>
+                <a href="{{ url('/waitlist') }}" class="request-demo-btn mt-3">Request a Demo</a>
             </div>
         </div>
     </div>

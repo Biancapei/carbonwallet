@@ -70,6 +70,7 @@ body {
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 36px;
+    padding: 0rem 5rem;
 }
 
 .mission h3 {
@@ -100,6 +101,7 @@ body {
 .team .row {
     display: flex;
     align-items: stretch;
+    padding: 2rem 5rem;
 }
 
 .team .col-12,
@@ -156,21 +158,21 @@ body {
     justify-content: space-between;
 }
 
-.team-name {
+.team-name, .advisor-name {
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
-.team-title {
+.team-title, .advisor-title {
     color: #16D3CA;
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     font-weight: 500;
 }
 
-.team-description {
+.team-description, .advisor-description {
     color: #ffffff;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 30px;
     margin-bottom: 1.5rem;
 }
@@ -217,7 +219,7 @@ body {
 }
 
 .investors-row {
-    padding-top: 3rem;
+    padding: 2rem 5rem;
 }
 
 .inv-card {
@@ -331,25 +333,6 @@ body {
     justify-content: center;
 }
 
-.advisor-name {
-    color: #ffffff;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.advisor-title {
-    color: #16D3CA;
-    font-size: 1.5rem;
-    font-weight: 500;
-}
-
-.advisor-descriptions {
-    color: #ffffff;
-    font-size: 1.25rem;
-    line-height: 30px;
-    margin-bottom: 1.5rem;
-}
-
 .advisor-linkedin {
     display: flex;
     justify-content: flex-start;
@@ -367,17 +350,18 @@ body {
     margin-bottom: 3rem;
 }
 
-.bottom h1 {
-    font-weight: 800;
-    font-size: 2.8rem;
+.bottom h2 {
     color: #fff;
+    font-weight: 700;
+    font-size: 1.875rem;
+    line-height: 40px;
     position: relative;
     z-index: 3;
     margin-bottom: 2rem;
 }
 
 .bottom p {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 30px;
     padding: 0rem 5rem;
 }
@@ -428,7 +412,6 @@ body {
     text-decoration: none;
     border-radius: 30px;
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: inset 1px 1px 0 rgb(255 255 255 / 62%), inset -1px -1px 0 rgb(255 255 255 / 57%), 0 4px 20px rgb(0 0 0 / 61%);
     transition: all 0.3s ease;
     font-weight: 600;
     font-size: 1.125rem;
@@ -464,6 +447,10 @@ body {
         font-size: 18px;
     }
 
+    .mission p, .team .row, .investors-row, .advisor-row {
+        padding: 0rem 2rem;
+    }
+
     .team-row,
     .investors-row {
         padding-top: 1rem;
@@ -479,11 +466,7 @@ body {
     .team-card {
         margin: .5rem;
         padding: .5rem 0 0 0;
-        height: 500px !important;
-    }
-
-    .team-name {
-        font-size: 14px;
+        height: 550px !important;
     }
 
     .team-content,
@@ -499,8 +482,8 @@ body {
         padding: 3rem 0 1rem;
     }
 
-    .inv-title {
-        font-size: 16px;
+    .inv-title, .team-name {
+        font-size: 20px;
     }
 
     /* Mobile Advisor Card */
@@ -510,16 +493,13 @@ body {
 
     .advisor-card-mobile {
         background: #0a0a0a;
+        border: none;
         border-radius: 10px;
-        padding: 1rem;
-        margin: 1rem;
+        padding: 1rem 0 0 0;
+        margin: .5rem;
         overflow: visible;
         position: relative;
-        box-shadow: 0 0 20px rgba(22, 211, 202, 0.1);
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        height: 550px !important;
     }
 
     .advisor-card-mobile::before {
@@ -541,16 +521,17 @@ body {
 
     .advisor-image-mobile {
         width: 100%;
-        max-width: 200px;
-        height: 200px;
+        height: 200px !important;
         object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 1rem;
+        padding: 1rem;
     }
 
     .advisor-content-mobile {
-        padding: 0;
-        text-align: center;
+        padding: 1rem;
+        text-align: left;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
     }
 
     .advisor-name-mobile {
@@ -563,13 +544,12 @@ body {
     .advisor-title-mobile {
         color: #16D3CA;
         margin-bottom: 0.5rem;
-        padding: 0rem 2rem;
     }
 
     .advisor-linkedin-mobile {
         display: flex;
-        justify-content: center;
-        margin-top: 1rem;
+        justify-content: flex-start;
+        margin-top: auto;
     }
 
     .linkedin-btn-mobile {
@@ -641,14 +621,18 @@ body {
         pointer-events: none;
     }
 
-    .bottom-card-mobile h1 {
+    .bottom-card-mobile h6 {
         font-size: 15px;
         font-weight: 800;
         line-height: 20px;
         color: #fff;
         position: relative;
         z-index: 4;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .bottom-card-mobile p {
+        display: none;
     }
 
     .bottom-card-mobile p {

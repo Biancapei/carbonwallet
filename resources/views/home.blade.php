@@ -15,8 +15,8 @@
                     <h3>The audit-ready ESG and carbon accounting platform that validates Scope 1–3 data with AI precision.</h3>
                 </div>
                 <div class="header-btn">
-                    <a href="#" class="start-for-free-btn">Start for Free</a> &nbsp;&nbsp;
-                    <a href="#" class="request-demo-btn">Request a Demo</a>
+                    <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a> &nbsp;&nbsp;
+                    <a href="{{ url('/waitlist') }}" class="request-demo-btn">Request a Demo</a>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
             <h3>Value Proposition</h3>
             <div class="row align-items-center value-proposition-content">
                 <div class="col-12 col-md-6 text-center">
-                    <img src="{{ asset('images/home/pic6.png') }}" class="img-fluid rounded shadow">
+                    <img src="{{ asset('images/home/pic6.png') }}" class="img-fluid rounded shadow" style="z-index: 3; position: relative;">
                 </div>
 
                 <div class="col-12 col-md-6">
@@ -136,7 +136,7 @@
                 </div>
             </div>
         </div>
-        <img src="/images/home/greenball-side.png" style="max-width: 100%; position: absolute; right: 0; top: 330%;" class="greenball-side">
+        <img src="/images/home/greenball-side.png" class="greenball-side-right">
     </div>
 
     <!-- Cards - Mobile Version -->
@@ -199,12 +199,12 @@
         <div class="container differentiation-content">
             <div class="row">
                 <div class="col-12 col-md-6" style="display: flex; flex-direction: column; justify-content: center;">
-                    <h1 style="-webkit-text-fill-color: #fff;">Others measure.</h1>
-                    <h1>We validate.</h1>
+                    <h2 style="-webkit-text-fill-color: #fff;">Others measure.</h2>
+                    <h2>We validate.</h2>
                     <div class="my-3">
                         <h3>Carbon AI isn’t just a reporting platform. It is an AI driven verification layer linking ESG and carbon accounting data to financial markets.</h3>
                     </div>
-                    <div class="my-3"><a href="#" class="request-demo-btn m-0">Request a Demo</a></div>
+                    <div class="my-3"><a href="{{ url('/waitlist') }}" class="request-demo-btn m-0">Request a Demo</a></div>
                 </div>
                 <div class="col-12 col-md-6">
                     <img src="{{ asset('images/home/pic5.png') }}" class="differentiation-img img-fluid rounded shadow" style="float: right;">
@@ -228,7 +228,7 @@
             </div>
         </div>
     </div>
-    <img src="/images/home/greenball-side.png" style="max-width: 100%; position: absolute; left: 0; top: 455%; transform: scaleX(-1); z-index: 1;" class="greenball-side">
+    <img src="/images/home/greenball-side.png" class="greenball-side-left-top">
 
     <!-- Insights - Desktop Version -->
     <div class="insights d-none d-md-block">
@@ -341,20 +341,20 @@
 
     <!-- Bottom - Desktop Version -->
     <div class="container bottom d-none d-md-block">
-        <h1>Carbon data you can trust</h1>
+        <h2>Carbon data you can trust</h2>
         <div class="my-5">
-            <a href="#" class="start-for-free-btn">Start for Free</a>
-            <a href="#" class="request-demo-btn">Request a Demo</a>
+            <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a>
+            <a href="{{ url('/waitlist') }}" class="request-demo-btn">Request a Demo</a>
         </div>
     </div>
 
     <!-- Bottom - Mobile Version -->
     <div class="container bottom-mobile d-flex d-md-none mb-5">
         <div class="bottom-card-mobile">
-            <h1>Carbon data you can trust</h1>
+            <h2>Carbon data you can trust</h2>
             <div class="bottom-buttons mt-4" style="display: flex; flex-direction: column; align-items: center;">
-                <a href="#" class="start-for-free-btn">Start for Free</a>
-                <a href="#" class="request-demo-btn mt-3">Request a Demo</a>
+                <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a>
+                <a href="{{ url('/waitlist') }}" class="request-demo-btn mt-3">Request a Demo</a>
             </div>
         </div>
     </div>
