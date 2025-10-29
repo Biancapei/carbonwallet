@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <title>@yield('title', 'My Laravel App')</title> --}}
-    <title>CARBON WALLET</title>
+    <title>CARBON AI</title>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/logoo.svg') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
     {{-- Google Fonts - Montserrat --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +48,7 @@
             <!-- Logo -->
             <div class="navbar-brand d-flex align-items-center">
                 <a href="{{ url('/') }}" class="logo-link">
-                    <img src="/images/logo.svg" class="logo-img">
+                    <img src="/images/latest-logo.png" class="logo-img">
                 </a>
                 <span class="logo-text">Carbon AI</span>
             </div>
