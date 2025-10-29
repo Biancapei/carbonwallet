@@ -70,8 +70,8 @@
             <!-- Navigation Links -->
             <div class="navbar-nav-container" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="aiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/solutions') }}" aria-expanded="false">
                             AI
                         </a>
                         {{-- <ul class="dropdown-menu" aria-labelledby="aiDropdown">
@@ -79,16 +79,16 @@
                         </ul> --}}
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="insightsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/blogs') }}" aria-expanded="false">
                             Blogs
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="insightsDropdown">
-                            {{-- <li><a class="dropdown-item" href="{{ url('/blogs') }}">Blog</a></li> --}}
-                        </ul>
+                        {{-- <ul class="dropdown-menu" aria-labelledby="insightsDropdown">
+                            <li><a class="dropdown-item" href="{{ url('/blogs') }}">Blog</a></li>
+                        </ul> --}}
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="companyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/about') }}" aria-expanded="false">
                             About
                         </a>
                         {{-- <ul class="dropdown-menu" aria-labelledby="companyDropdown">
