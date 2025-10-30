@@ -8,7 +8,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>CarbonWallet Waitlist</title>
+    <title>Join Carbon AI | Get Early Access to Net-Zero Solutions</title>
+    <meta name="description" content="Join the Carbon AI waitlist to experience AI-driven carbon accounting that helps you track, reduce, and verify emissions with precision toward net zero.">
 
     <!-- Google Fonts - Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,7 +126,8 @@
             position: relative;
             width: 100%;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
         .input-wrapper {
@@ -452,6 +454,18 @@
             font-size: 14px;
         }
 
+        /* Inline field validation errors (shown below inputs) */
+        .field-error {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 6px;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            display: none;
+        }
+
         @media (max-width: 1200px) {
             .main-title {
                 font-size: 3.5rem;
@@ -756,6 +770,7 @@
                             required
                         >
                     </div>
+                    <div id="nameError" class="field-error"></div>
                 </div>
 
                 <div class="form-group">
@@ -770,6 +785,7 @@
                             required
                         >
                     </div>
+                    <div id="emailError" class="field-error"></div>
                 </div>
 
                 <div class="form-group">
@@ -844,44 +860,53 @@
             const nameInput = document.querySelector('input[name="name"]');
             const emailInput = document.querySelector('input[name="email"]');
             const companyInput = document.querySelector('input[name="company"]');
-            const messageInput = document.querySelector('textarea[name="message"]');
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+
+            // Reset inline errors
+            nameError.textContent = '';
+            emailError.textContent = '';
+            nameError.style.display = 'none';
+            emailError.style.display = 'none';
 
             // Check if required fields are filled
+            let hasError = false;
             if (!nameInput.value.trim()) {
-                alert('Please enter your full name');
-                nameInput.focus();
-                return;
+                nameError.textContent = 'Please enter your name';
+                nameError.style.display = 'block';
+                if (!hasError) nameInput.focus();
+                hasError = true;
             }
 
             if (!emailInput.value.trim()) {
-                alert('Please enter your email address');
-                emailInput.focus();
-                return;
+                emailError.textContent = 'Please enter your email address';
+                emailError.style.display = 'block';
+                if (!hasError) emailInput.focus();
+                hasError = true;
             }
 
             // Enhanced email validation
             function isValidEmail(email) {
-                // More comprehensive email validation
                 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-                // Additional checks
                 if (!emailRegex.test(email)) return false;
-
-                // Check for common invalid patterns
                 if (email.includes('..')) return false; // No consecutive dots
                 if (email.startsWith('.') || email.endsWith('.')) return false; // No leading/trailing dots
                 if (email.includes('@.') || email.includes('.@')) return false; // No dots around @
-
                 return true;
             }
 
-            if (!isValidEmail(emailInput.value.trim())) {
-                alert('Please enter a valid email address (e.g., name@company.com, user@gmail.com)');
+            if (!hasError && !isValidEmail(emailInput.value.trim())) {
+                emailError.textContent = 'Please enter a valid email address (e.g., name@company.com)';
+                emailError.style.display = 'block';
                 emailInput.focus();
-                return;
+                hasError = true;
             }
 
-            // Show modal immediately
+            if (hasError) {
+                return; // Do not submit or show modal
+            }
+
+            // Show modal only after validation passes
             showModal();
 
             // Get form data
@@ -898,10 +923,8 @@
             })
             .then(response => {
                 if (response.ok) {
-                    // Form submitted successfully, modal is already shown
                     console.log('Form submitted successfully');
                 } else {
-                    // Handle error if needed
                     console.error('Form submission failed');
                 }
             })

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Blogs')
+@section('meta_title', 'Carbon AI Insights | ESG, Net Zero & Climate Tech')
+@section('meta_description', 'Read expert insights on ESG software, carbon accounting, and climate tech. See how Carbon AI drives the net-zero transition with verified sustainability data.')
 
 @section('content')
 <div>

@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CARBON AI</title>
+    @hasSection('meta_title')
+        <title>@yield('meta_title')</title>
+    @else
+        <title>CARBON AI</title>
+    @endif
+    @hasSection('meta_description')
+        <meta name="description" content="@yield('meta_description')">
+    @endif
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/logo_v1.svg') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 

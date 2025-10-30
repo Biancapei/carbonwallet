@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Solutions')
+@section('meta_title', 'Carbon AI Engine | ESG Validation & Carbon Accounting')
+@section('meta_description', 'Explore how Carbon AI automates ESG validation, carbon emissions tracking, and decarbonization insights to create a transparent pathway to verified net-zero reporting.')
 
 @section('content')
 <div>
