@@ -838,7 +838,7 @@ body {
 }
 
 /* Ensure consistent container widths */
-.cards .container, .differentiation .container {
+.cards .container, .differentiation .container, .value-proposition .container {
     max-width: 1200px;
     margin: 0 auto;
     padding-left: 15px;
@@ -922,6 +922,17 @@ body {
 
 .cards, .insights {
     padding: 5rem 3rem;
+}
+
+.value-proposition .value-proposition-content {
+    align-items: flex-start !important; /* keep left image from shifting vertically when right column expands */
+    --bs-gutter-x: 1rem; /* reduce horizontal gap between the two columns */
+}
+
+@media (min-width: 992px) {
+  .value-proposition .value-proposition-content {
+    --bs-gutter-x: 0.75rem; /* slightly tighter on desktop */
+  }
 }
 
 .cards .row,
