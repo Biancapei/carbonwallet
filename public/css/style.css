@@ -1636,8 +1636,8 @@ body {
         padding: 0rem 2rem;
     }
 
-    .header h1, .insights-mobile h3, .value-proposition h3, .differentiation h2, .bottom h2 {
-        font-size: 1.5rem;
+    .header h1, .value-proposition h3, .differentiation h2, .bottom h2 {
+        font-size: 2rem;
     }
 
     .value-proposition, .differentiation {
@@ -1789,6 +1789,7 @@ body {
         font-weight: 800;
         text-align: center;
     }
+
     .insights-mobile h5 {
         text-align: center;
         padding: 0rem 1rem
