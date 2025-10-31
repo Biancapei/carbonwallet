@@ -47,7 +47,7 @@
             <h3>Value Proposition</h3>
             <div class="row align-items-center value-proposition-content">
                 <div class="col-12 col-md-6 text-center">
-                    <img id="valueGif" width="550" height="360" src="{{ asset('images/home/value.gif') }}" class="img-fluid rounded shadow" style="z-index: 3; position: relative; border: 1px solid rgba(22, 211, 202, 0.3); object-fit: cover;">
+                    <img id="valueGif" width="580" height="360" src="{{ asset('images/home/value.gif') }}" class="img-fluid rounded shadow" style="z-index: 3; position: relative; border: 1px solid rgba(22, 211, 202, 0.3); object-fit: cover;">
                 </div>
 
                 <div class="col-12 col-md-6">

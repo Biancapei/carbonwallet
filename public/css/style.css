@@ -935,6 +935,19 @@ body {
   }
 }
 
+/* Explicit widths for the left value GIF at large breakpoints */
+@media (min-width: 1200px) {
+    #valueGif {
+        width: 580px !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    #valueGif {
+        width: 680px !important;
+    }
+}
+
 .cards .row,
 #insightsCarousel .row {
     display: flex;
