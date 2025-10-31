@@ -52,31 +52,31 @@
 
                 <div class="col-12 col-md-6">
                     <div class="value-boxes">
-                        <div class="value-box active" onclick="toggleValueBox(this)" data-gif="{{ asset('images/home/value.gif') }}">
+                        <div class="value-box active" onclick="toggleValueBox(this)" data-gif="{{ asset('images/home/validate.gif') }}">
                             <div class="value-header">
                                 <h4 class="value-title">Validate</h4>
                                 <button class="dropdown-arrow">↓</button>
                             </div>
                             <div class="value-divider"></div>
-                            <p class="value-description">AI-powered and audit-ready ESG data validation for Scope 1-3 emissions.</p>
+                            <p class="value-description">AI-powered, assurance-grade data validation for Scopes 1-3, aligned with ISAE 5000 standards.</p>
                         </div>
 
-                        <div class="value-box" onclick="toggleValueBox(this)" data-gif="{{ asset('images/home/value.gif') }}">
+                        <div class="value-box" onclick="toggleValueBox(this)" data-gif="{{ asset('images/home/enrich.gif') }}">
                             <div class="value-header">
                                 <h4 class="value-title">Enrich</h4>
                                 <button class="dropdown-arrow">↓</button>
                             </div>
                             <div class="value-divider"></div>
-                            <p class="value-description">Enhance accuracy with localized emission factors and confidence scoring.</p>
+                            <p class="value-description">Enhance data accuracy with confidence scores and benchmarks.</p>                            </p>
                         </div>
 
-                        <div class="value-box" onclick="toggleValueBox(this)" data-gif="{{ asset('images/home/value.gif') }}">
+                        <div class="value-box" onclick="toggleValueBox(this)" data-gif="{{ asset('images/home/connect.gif') }}">
                             <div class="value-header">
                                 <h4 class="value-title">Connect</h4>
                                 <button class="dropdown-arrow">↓</button>
                             </div>
                             <div class="value-divider"></div>
-                            <p class="value-description">Integrate seamlessly with carbon accounting software, registries, and financial systems through API.</p>
+                            <p class="value-description">Link directly with suppliers to collect real Scope 3 data, or integrate seamlessly with other software through APIs.</p>
                         </div>
                     </div>
                 </div>
@@ -211,7 +211,7 @@
                     <div class="my-3"><a href="{{ url('/waitlist') }}" class="request-demo-btn m-0">Request a Demo</a></div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <img src="{{ asset('images/home/pic5.png') }}" class="differentiation-img img-fluid rounded shadow" style="float: right;">
+                    <img src="{{ asset('images/home/differentiation.gif') }}" class="differentiation-img img-fluid rounded shadow" style="float: right;">
                 </div>
             </div>
         </div>
