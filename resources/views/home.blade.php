@@ -328,7 +328,7 @@
                 <div class="col-6">
                     <div class="insights-card-mobile">
                         <div class="insights-card-body-mobile">
-                            <h4>Scope 3 Decarbonization</h4>
+                            <h4>Scope 3 Decarbonizationnn</h4>
                             <div class="insights-content-row-mobile">
                                 <a href="#" class="insights-link-mobile">Explore Insights</a>
                                 <a href="#" class="insights-arrow-mobile">
