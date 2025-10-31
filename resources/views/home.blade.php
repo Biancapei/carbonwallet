@@ -13,8 +13,9 @@
             <div class="row-centered">
                 <div class="header">
                     <h1>AI for Net Zero</h1>
-                    <h3>The audit-ready ESG and carbon accounting platform that validates Scope 1–3 data with AI precision.</h3>
+                    <h3>The audit-ready ESG and carbon accounting platform, aligned with ISSA 5000, that validates Scope 1-3 data with AI precision.​</h3>
                 </div>
+
                 <div class="header-btn">
                     <a href="{{ url('/waitlist') }}" class="start-for-free-btn">Start for Free</a> &nbsp;&nbsp;
                     <a href="{{ url('/waitlist') }}" class="request-demo-btn">Request a Demo</a>
@@ -43,7 +44,7 @@
     <!-- Value Proposition -->
     <div class="value-proposition">
         <div class="container">
-            <h3>Value Proposition</h3>
+            <h3>Carbon AI Advantage</h3>
             <div class="row align-items-center value-proposition-content">
                 <div class="col-12 col-md-6 text-center">
                     <img src="{{ asset('images/home/pic6.png') }}" class="img-fluid rounded shadow" style="z-index: 3; position: relative;">
@@ -87,7 +88,8 @@
     <!-- Case Tiles -->
     <div class="cards d-none d-md-block">
         <div class="container">
-            <div class="row g-4 mt-4">
+            <h3>Where Carbon AI Delivers Impact</h3>
+            <div class="row g-4">
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="card h-100" style="background-image: url('{{ asset('images/home/pic1.png') }}'); background-size: cover; background-position: center;">
                         <div class="card-body">
@@ -143,6 +145,7 @@
     <!-- Cards - Mobile Version -->
     <div class="cards-mobile d-block d-md-none px-3">
         <div class="container">
+            <h3>Where Carbon AI Delivers Impact</h3>
             <div class="row">
                 <div class="col-6 my-4">
                     <div class="card-mobile h-100" style="background-image: url('{{ asset('images/home/pic1.png') }}'); background-size: cover; background-position: center;">
@@ -235,7 +238,7 @@
     <div class="insights d-none d-md-block">
         <div class="container">
             <h3>Stay Ahead of the Curve</h3>
-            <h5>Discover verified carbon data and decarbonization insights aligned with SBTi and global disclosure standards.</h5>
+            <h5>Discover verified carbon data and decarbonization insights aligned with SBTi and global disclosure frameworks.</h5>
 
             <div class="row my-5">
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -271,7 +274,7 @@
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="insights-card">
                         <div class="insights-card-body">
-                            <h4>Scope 3 Decarbonization Insights (Asia & GBA)</h4>
+                            <h4>Scope 3 Decarbonization</h4>
                             <div class="insights-content-row">
                                 <a href="#" class="insights-link">Explore Insights</a>
                                 <a href="#" class="insights-arrow">
@@ -290,7 +293,7 @@
     <div class="insights-mobile d-block d-md-none">
         <div class="container">
             <h3>Stay Ahead of the Curve</h3>
-            <h5 class="my-3">Discover verified carbon data and decarbonization insights aligned with SBTi and global disclosure standards.</h5>
+            <h5 class="my-3">Discover verified carbon data and decarbonization insights aligned with SBTi and global disclosure frameworks.</h5>
             <div class="row mt-5">
                 <div class="col-6">
                     <div class="insights-card-mobile">
@@ -325,7 +328,7 @@
                 <div class="col-6">
                     <div class="insights-card-mobile">
                         <div class="insights-card-body-mobile">
-                            <h4>Scope 3 Decarbonization Insights (Asia & GBA)</h4>
+                            <h4>Scope 3 Decarbonization</h4>
                             <div class="insights-content-row-mobile">
                                 <a href="#" class="insights-link-mobile">Explore Insights</a>
                                 <a href="#" class="insights-arrow-mobile">

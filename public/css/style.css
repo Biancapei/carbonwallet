@@ -930,6 +930,7 @@ body {
     flex-wrap: wrap;
     align-items: stretch;
     justify-content: space-around;
+    padding-top: 5rem;
 }
 
 .cards .card, .insights .card {
@@ -1044,7 +1045,7 @@ body {
     object-fit: contain;
 }
 
-.insights h3, .value-proposition h3 {
+.insights h3, .value-proposition h3, .cards h3 {
     background: linear-gradient(90deg, #16D3CA 10%, #1AB3C5 20%, #2BD7BD 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1058,6 +1059,7 @@ body {
     font-weight: 600;
     text-align: center;
     margin-top: 2rem;
+    line-height: 40px;
 }
 
 .insights .card {
@@ -1634,8 +1636,8 @@ body {
         padding: 0rem 2rem;
     }
 
-    .value-proposition h3, .differentiation 2, .insights-mobile h3 {
-        font-size: 18px;
+    .header h1, .insights-mobile h3, .value-proposition h3, .differentiation h2, .bottom h2 {
+        font-size: 1.5rem;
     }
 
     .value-proposition, .differentiation {
@@ -1780,7 +1782,7 @@ body {
         padding-bottom: 1rem;
     }
 
-    .insights-mobile h3 {
+    .insights-mobile h3, .cards-mobile h3 {
         background: linear-gradient(90deg, #16D3CA 10%, #1AB3C5 20%, #2BD7BD 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
