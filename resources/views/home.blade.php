@@ -44,7 +44,7 @@
     <!-- Value Proposition -->
     <div class="value-proposition">
         <div class="container">
-            <h3>Value Proposition</h3>
+            <h3>Carbon AI Advantage</h3>
             <div class="row align-items-center value-proposition-content">
                 <div class="col-12 col-md-6 text-center">
                     <img id="valueGif" width="580" height="360" src="{{ asset('images/home/value.gif') }}" class="img-fluid rounded shadow" style="z-index: 3; position: relative; border: 1px solid rgba(22, 211, 202, 0.3); object-fit: cover;">
@@ -211,7 +211,7 @@
                     <div class="my-3"><a href="{{ url('/waitlist') }}" class="request-demo-btn m-0">Request a Demo</a></div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <img src="{{ asset('images/home/differentiation.gif') }}" class="differentiation-img img-fluid rounded shadow" style="float: right;">
+                    <img src="{{ asset('images/home/differentiation.gif') }}" class="differentiation-img img-fluid rounded shadow" style="border: 2px solid rgba(22, 211, 202, 0.3);">
                 </div>
             </div>
         </div>
