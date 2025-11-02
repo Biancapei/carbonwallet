@@ -55,9 +55,8 @@
             <!-- Logo -->
             <div class="navbar-brand d-flex align-items-center">
                 <a href="{{ url('/') }}" class="logo-link">
-                    <img src="/images/latest-logo.png" class="logo-img">
+                    <img src="/images/carbonlogo.png" class="logo-img">
                 </a>
-                <span class="logo-text">Carbon AI</span>
             </div>
 
             <!-- Action Buttons (Desktop) -->

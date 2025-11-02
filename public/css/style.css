@@ -30,11 +30,12 @@
 .logo-link {
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: left;
 }
 
 .logo-img {
-    max-width: 80%;
+    height: 50px;
+    width: auto;
 }
 
 .logo-text {
@@ -1613,7 +1614,8 @@ body {
 
 @media (max-width: 1024.9px) {
     .logo-img {
-        max-width: 40%;
+        height: 40px;
+        width: auto;
     }
 
     .logo-text {
