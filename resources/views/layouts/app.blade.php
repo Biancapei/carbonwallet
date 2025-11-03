@@ -242,46 +242,55 @@
 
     <!-- Footer -->
     <footer class="footer text-white">
-        {{-- <div class="container py-5">
-            <div class="row">
-                <!-- Newsletter -->
-                <div class="col-12 col-lg-5 mb-4 mb-lg-0">
-                    <h5 class="mb-3">Subscribe to our Newsletter</h5>
-                    <form class="d-flex flex-column flex-sm-row">
-                        <input type="email" class="form-control me-sm-2 mb-2 mb-sm-0" placeholder="Enter your email">
-                        <button type="submit" class="btn form-submit-btn">Subscribe</button>
-                    </form>
-                </div>
-
-                <!-- About & Contact -->
-                <div class="col-12 col-lg-7">
-                    <div class="row"  style="justify-content: right;">
-                        <div class="col-6 col-md-4 mb-4 mb-md-0">
-                            <h6 class="fw-bold mb-3">Company</h6>
-                            <ul class="list-unstyled mt-4">
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Careers</a></li>
-                            </ul>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <img src="{{ asset('images/carbonlogoo.png') }}" alt="Carbon AI Logo" class="footer-logo-img">
+                    </div>
+                    <div class="footer-addresses mx-2">
+                        <div class="footer-address">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>012 539 3065</span>
                         </div>
-
-                        <img src="/images/footer-logo.svg" style="max-width: 15%; position: absolute; right: 40%; top: -25%;">
-
-                        <div class="col-6 col-md-4 mb-4 mb-md-0">
-                            <a href="/contact" class="fw-bold mb-3">Contact</a>
-                            <ul class="list-unstyled mt-4">
-                                <li><a href="mailto:info@example.com">info@example.com</a></li>
-                                <li><a href="#">+60 123 456 789</a></li>
-                                <li><a href="#">Kuala Lumpur, MY</a></li>
-                            </ul>
+                        <div class="footer-address">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Level 33, Ilham Tower,<br> 8, Jalan Binjai, 50450 Kuala Lumpur,<br>Malaysia</span>
+                        </div>
+                        <div class="footer-address">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Level 39, MBFC Tower 2, 10 Marina<br> Boulevard, Singapore, 018983</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div> --}}
 
-        <!-- Copyright -->
+                <!-- Right Section: Navigation Links -->
+                <div class="footer-right">
+                    <nav class="footer-nav">
+                        <a href="{{ url('/solutions') }}">AI</a>
+                        <a href="{{ url('/blogs') }}">Blogs</a>
+                        <a href="{{ url('/about') }}">About</a>
+                    </nav>
+                    <div class="footer-follow-section mt-3">
+                        <div class="footer-follow-text mb-2">FOLLOW US</div>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/company/carbon2030ai/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin" style="font-size: 2rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-waitlist-link mt-2">
+                        <a href="{{ url('/waitlist') }}">SIGN UP TO OUR WAITLIST &nbsp; <i class="fa-solid fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Bottom -->
         <div class="footer-bottom text-center py-3">
-            <small>© {{ date('Y') }} Carbon AI. All rights reserved.</small>
+            <div class="container">
+                <small>© {{ date('Y') }} Carbon AI. All rights reserved.</small>
+            </div>
         </div>
     </footer>
 </body>

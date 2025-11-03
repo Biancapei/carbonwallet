@@ -76,7 +76,7 @@
         <div class="content">
             <!-- Banner Image -->
             <div class="banner">
-                <img src="https://carbon2030.ai/images/logo.svg">
+                <img src="https://carbon2030.ai/images/logo.png">
             </div>
 
             <!-- Greeting -->
@@ -93,6 +93,7 @@
 
         <div class="footer">
             <p>© 2025 Laravel. All rights reserved.</p>
+            <a href="https://www.carbon2030.ai/" target="_blank">https://carbon2030.ai</a>
         </div>
     </div>
 </body>
