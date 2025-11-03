@@ -740,7 +740,7 @@
     <div class="container">
         <div class="waitlist-form">
             <!-- Main title -->
-            <img src="{{ asset('images/logo.png') }}" class="carbon-logo">
+            <img src="{{ asset('images/logo.svg') }}" class="carbon-logo">
             <h1 class="main-title">Join the waitlist for</h1>
             <h1 class="accent-text">Carbon AI</h1>
 
