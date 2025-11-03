@@ -3,7 +3,7 @@
 @section('title', 'Home')
 @section('meta_title', 'Carbon AI | AI-Driven Carbon Accounting & ESG Validation')
 @section('meta_description', 'Carbon AI helps organizations measure, reduce and verify carbon footprints with AI-driven carbon accounting and ESG validation for net zero')
-@section('meta_image', url('images/carbon_meta.png'))
+@section('meta_image', url('images/carbon_metaa.png'))
 @section('content')
 <div>
     <div class="homepage-bg">
