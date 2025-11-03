@@ -55,7 +55,7 @@
             <!-- Logo -->
             <div class="navbar-brand d-flex align-items-center">
                 <a href="{{ url('/') }}" class="logo-link">
-                    <img src="/images/carbonlogo.png" class="logo-img">
+                    <img src="/images/carbonlogoo.png" class="logo-img">
                 </a>
             </div>
 
