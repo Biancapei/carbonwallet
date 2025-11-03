@@ -114,9 +114,9 @@
 
                 <div class="col-12 col-md-4 d-flex">
                     <div class="inv-card flex-fill">
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center px-3">
                             <a href="https://www.nvidia.com/en-us/startups/" target="_blank">
-                                <img src="{{ asset('images/about/nvidia.svg') }}">
+                                <img src="{{ asset('images/about/nvidia.png') }}" style="max-width: 100%;">
                             </a>
                         </div>
                         <div class="inv-content">
