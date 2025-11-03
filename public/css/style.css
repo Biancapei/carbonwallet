@@ -432,8 +432,9 @@
         gap: 2.5rem;
     }
 
-    .footer span, .footer-nav a, .footer-waitlist-link a {
+    .footer span, .footer-nav a, .footer-waitlist-link a, .footer-phone a {
         font-size: 14px !important;
+        color: #fff !important;
     }
 
     .footer-right {
@@ -1317,7 +1318,7 @@ body {
     padding-top: 5rem;
     padding-bottom: 5rem;
     text-align: center;
-    margin-bottom: 15rem;
+    margin-bottom: 10rem;
 }
 
 .bottom::before, .ai-bottom::before, .subscribe::before {
@@ -1732,14 +1733,14 @@ body {
 .footer-addresses {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: .5rem;
     color: #ccc;
 }
 
 .footer-address {
     display: flex;
     align-items: flex-start;
-    gap: .5rem;
+    gap: 1.5rem;
     flex-direction: column;
 }
 
@@ -1747,9 +1748,10 @@ body {
     font-size: 1.5rem;
 }
 
-.footer span {
+.footer span, .footer-phone a {
     font-size: 1.125rem;
     color: #fff;
+    text-decoration: none;
 }
 
 .footer-follow-section {

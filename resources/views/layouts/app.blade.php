@@ -250,11 +250,7 @@
                     </div>
                     <div class="footer-addresses mx-2">
                         <div class="footer-address">
-                            <span>012 539 3065</span>
-
-
                             <span>Level 33, Ilham Tower,<br> 8, Jalan Binjai, 50450 Kuala Lumpur,<br>Malaysia</span>
-
                             <span>Level 39, MBFC Tower 2, 10 Marina<br> Boulevard, Singapore, 018983</span>
                         </div>
                     </div>
@@ -268,13 +264,23 @@
                         <a href="{{ url('/about') }}">About</a>
                     </nav>
                     <div class="footer-follow-section mt-3">
-                        <div class="footer-follow-text mb-2">FOLLOW US</div>
                         <div class="footer-social">
                             <a href="https://www.linkedin.com/company/carbon2030ai/" target="_blank" class="social-icon" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin" style="font-size: 2rem;"></i>
                             </a>
                         </div>
                     </div>
+                    <div class="footer-phone d-md-block d-none">
+                        <a href="https://wa.me/60125393065" target="_blank">+6012 539 3065</a>&nbsp;&nbsp;
+                        <i class="fa-solid fa-mobile-screen-button" style="font-size: 2rem;"></i>
+                    </div>
+
+                    {{-- Mobile --}}
+                    <div class="footer-phone d-block d-md-none">
+                        <i class="fa-solid fa-mobile-screen-button" style="font-size: 2rem;"></i>
+                        <a href="https://wa.me/60125393065" target="_blank">+6012 539 3065</a>&nbsp;&nbsp;
+                    </div>
+
                     <div class="footer-waitlist-link mt-2">
                         <a href="{{ url('/waitlist') }}">SIGN UP TO OUR WAITLIST &nbsp; <i class="fa-solid fa-long-arrow-right"></i></a>
                     </div>
