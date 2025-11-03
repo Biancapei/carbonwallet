@@ -423,7 +423,7 @@
 /* Responsive Footer */
 @media (max-width: 768px) {
     .footer {
-        padding: 3rem 0 2rem;
+        padding: 2rem 0 0;
     }
 
     .footer-content {
@@ -459,10 +459,6 @@
 }
 
 @media (max-width: 576px) {
-    .footer {
-        padding: 2.5rem 0 2rem;
-    }
-
     .footer-nav {
         gap: 0.75rem;
     }
