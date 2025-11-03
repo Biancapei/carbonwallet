@@ -250,15 +250,11 @@
                     </div>
                     <div class="footer-addresses mx-2">
                         <div class="footer-address">
-                            <i class="fa-solid fa-phone"></i>
                             <span>012 539 3065</span>
-                        </div>
-                        <div class="footer-address">
-                            <i class="fa-solid fa-location-dot"></i>
+
+
                             <span>Level 33, Ilham Tower,<br> 8, Jalan Binjai, 50450 Kuala Lumpur,<br>Malaysia</span>
-                        </div>
-                        <div class="footer-address">
-                            <i class="fa-solid fa-location-dot"></i>
+
                             <span>Level 39, MBFC Tower 2, 10 Marina<br> Boulevard, Singapore, 018983</span>
                         </div>
                     </div>
@@ -266,7 +262,7 @@
 
                 <!-- Right Section: Navigation Links -->
                 <div class="footer-right">
-                    <nav class="footer-nav">
+                    <nav class="footer-nav mx-2">
                         <a href="{{ url('/solutions') }}">AI</a>
                         <a href="{{ url('/blogs') }}">Blogs</a>
                         <a href="{{ url('/about') }}">About</a>

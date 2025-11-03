@@ -1742,8 +1742,9 @@ body {
 
 .footer-address {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: .5rem;
+    flex-direction: column;
 }
 
 .footer-address i {
