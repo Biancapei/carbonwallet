@@ -219,7 +219,7 @@ body {
 }
 
 .investors-row {
-    padding: 2rem 0;
+    padding: 2rem 5rem;
 }
 
 .inv-card {
@@ -671,3 +671,5 @@ body {
         box-shadow: 7px 7px 10px rgba(43, 215, 189, 0.40) inset;
     }
 }
+
+

@@ -43,7 +43,7 @@
             <div class="row align-items-center team-row">
                 <div class="col-12 col-md-6 text-center">
                     <div class="team-card">
-                        <img src="{{ asset('images/about/nickmah.jpeg') }}" class="team-image">
+                        <img src="{{ asset('images/about/nick.jpg') }}" class="team-image">
                         <div class="team-content">
                             <h4 class="team-name">Nick Mah</h4>
                             <p class="team-title">Founder & CEO</p>
@@ -61,7 +61,7 @@
 
                 <div class="col-12 col-md-6">
                     <div class="team-card">
-                        <img src="{{ asset('images/about/fionalee.jpg') }}" class="team-image">
+                        <img src="{{ asset('images/about/fiona.jpg') }}" class="team-image">
                         <div class="team-content">
                             <h4 class="team-name">Fiona Lee</h4>
                             <p class="team-title" style="color:#1AB3C5;">Co-Founder & COO</p>
@@ -85,12 +85,12 @@
     <div class="">
         <div class="container investors"">
             <h3>Investors</h3>
-            <div class="row investors-row align-items-stretch">
-                <div class="col-12 col-md-4 d-flex">
+            <div class="row investors-row">
+                <div class="col-12 col-md-6 d-flex">
                     <div class="inv-card flex-fill">
                         <div class="d-flex justify-content-center px-3">
                             <a href="https://startup.google.com/" target="_blank">
-                                <img src="{{ asset('images/about/google.png') }}" style="max-width: 100%;">
+                                <img src="{{ asset('images/about/googlee.png') }}" style="max-width: 100%;">
                             </a>
                         </div>
                         <div class="inv-content">
@@ -99,7 +99,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4 d-flex">
+                {{-- <div class="col-12 col-md-4 d-flex">
                     <div class="inv-card flex-fill">
                         <div class="d-flex justify-content-center">
                             <a href="https://cradle.com.my/" target="_blank">
@@ -110,13 +110,13 @@
                             <p class="inv-description mb-0">Malaysia's national early-stage innovation fund supporting high-potential technology startups through commercialization funding, mentorship, and ecosystem partnerships.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="col-12 col-md-4 d-flex">
+                <div class="col-12 col-md-6 d-flex">
                     <div class="inv-card flex-fill">
                         <div class="d-flex justify-content-center px-3">
                             <a href="https://www.nvidia.com/en-us/startups/" target="_blank">
-                                <img src="{{ asset('images/about/nvidia.png') }}" style="max-width: 100%;">
+                                <img src="{{ asset('images/about/nvidiaa.png') }}" style="max-width: 100%;">
                             </a>
                         </div>
                         <div class="inv-content">
