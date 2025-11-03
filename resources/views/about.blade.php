@@ -61,7 +61,7 @@
 
                 <div class="col-12 col-md-6">
                     <div class="team-card">
-                        <img src="{{ asset('images/about/image1.png') }}" class="team-image">
+                        <img src="{{ asset('images/about/fionalee.jpg') }}" class="team-image">
                         <div class="team-content">
                             <h4 class="team-name">Fiona Lee</h4>
                             <p class="team-title" style="color:#1AB3C5;">Co-Founder & COO</p>
