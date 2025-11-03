@@ -12,12 +12,20 @@
         <meta name="description" content="@yield('meta_description')">
     @endif
     @hasSection('meta_image')
-        <meta property="og:image" content="@yield('meta_image')">
+        @php
+            $metaImageUrl = view()->yieldContent('meta_image');
+            $imagePath = parse_url($metaImageUrl, PHP_URL_PATH);
+            $publicPath = public_path(ltrim($imagePath, '/'));
+            $cacheVersion = file_exists($publicPath) ? filemtime($publicPath) : time();
+        @endphp
+        <meta property="og:image" content="{{ $metaImageUrl }}?v={{ $cacheVersion }}">
+        <meta property="og:image:secure_url" content="{{ $metaImageUrl }}?v={{ $cacheVersion }}">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="@yield('meta_title', 'Carbon AI')">
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="@yield('meta_image')">
+        <meta name="twitter:image" content="{{ $metaImageUrl }}?v={{ $cacheVersion }}">
     @endif
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/logo_v1.svg') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">

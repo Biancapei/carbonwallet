@@ -823,7 +823,7 @@
             </div>
             <h2 class="modal-title">You're on the waitlist</h2>
             <p class="modal-message">Thank you for joining Carbon AI's early access program.<br><br><br><span style="color: #666;">You'll receive a confirmation email shortly with more details about what's next.</span></p>
-            <div class="modal-waitlist-container" onclick="closeModal()">
+            <div class="modal-waitlist-container" onclick="closeModalAndRedirect()">
                 <div class="modal-waitlist-overlay"></div>
                 <div class="modal-waitlist-gradient"></div>
                 <div class="modal-waitlist-text">Go Back to Homepage</div>
@@ -941,6 +941,10 @@
         function closeModal() {
             document.getElementById('successModal').style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function closeModalAndRedirect() {
+            window.location.replace('{{ url('/') }}');
         }
 
         // Close modal when clicking outside
