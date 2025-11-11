@@ -41,7 +41,6 @@
         </div>
     </div>
 
-
     <!-- Value Proposition -->
     <div class="value-proposition">
         <div class="container">
@@ -92,7 +91,7 @@
             <h3>Where Carbon AI Delivers Impact</h3>
             <div class="row g-4">
                 <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="card h-100" style="background-image: url('{{ asset('images/home/pic1.png') }}'); background-size: cover; background-position: center;">
+                    <div class="card h-100" style="background-image: url('{{ asset('images/home/hospitality.jpg') }}'); background-size: cover; background-position: center;">
                         <div class="card-body">
                             <h4>Hospitality & <br>Tourism</h4>
                             <div class="content-row">
@@ -104,7 +103,7 @@
                 </div>
 
                 <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="card h-100" style="background-image: url('{{ asset('images/home/pic2.png') }}'); background-size: cover; background-position: center;">
+                    <div class="card h-100" style="background-image: url('{{ asset('images/home/finance.jpg') }}'); background-size: cover; background-position: center;">
                         <div class="card-body">
                             <h4 style="color: #1AB3C5">Finance & <br>Investments</h4>
                             <div class="content-row">
@@ -116,7 +115,7 @@
                 </div>
 
                 <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="card h-100" style="background-image: url('{{ asset('images/home/pic3.png') }}'); background-size: cover; background-position: center;">
+                    <div class="card h-100" style="background-image: url('{{ asset('images/home/supplychain.jpg') }}'); background-size: cover; background-position: center;">
                         <div class="card-body">
                             <h4>Supply Chain & Manufacturing</h4>
                             <div class="content-row">
@@ -128,7 +127,7 @@
                 </div>
 
                 <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="card h-100" style="background-image: url('{{ asset('images/home/pic4.png') }}'); background-size: cover; background-position: center;">
+                    <div class="card h-100" style="background-image: url('{{ asset('images/home/corporate.jpg') }}'); background-size: cover; background-position: center;">
                         <div class="card-body">
                             <h4 style="color: #1AB3C5">Corporate &<br> Integration</h4>
                             <div class="content-row">
