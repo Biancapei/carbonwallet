@@ -49,7 +49,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function blogs()
+    public function blogs(Request $request)
     {
         $perPage = 4;
 
@@ -82,12 +82,34 @@ class HomeController extends Controller
             ->latest()
             ->paginate($perPage, ['*'], 'regulations-page');
 
-        return view('blogs', compact(
+        $activeTab = 'all';
+        if ($request->has('carbon-accounting-page')) {
+            $activeTab = 'carbon-accounting';
+        } elseif ($request->has('hospitality-page')) {
+            $activeTab = 'hospitality';
+        } elseif ($request->has('net-zero-page')) {
+            $activeTab = 'net-zero';
+        } elseif ($request->has('regulations-page')) {
+            $activeTab = 'regulations';
+        }
+
+        $data = compact(
             'blogs',
             'carbonAccountingBlogs',
             'hospitalityBlogs',
             'netZeroBlogs',
-            'regulationsBlogs'
-        ));
+            'regulationsBlogs',
+            'activeTab'
+        );
+
+        if ($request->ajax()) {
+            $html = view('partials.blogs-wrapper', $data)->render();
+            return response()->json([
+                'html' => $html,
+                'activeTab' => $activeTab,
+            ]);
+        }
+
+        return view('blogs', $data);
     }
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Http\Request;
 
 // Waitlist routes
 Route::get('/waitlist', [App\Http\Controllers\WaitlistController::class, 'index'])->name('waitlist');
