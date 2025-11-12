@@ -241,50 +241,26 @@
             <h5>Discover verified carbon data and decarbonization insights aligned with SBTi and global disclosure frameworks.</h5>
 
             <div class="row my-5">
+                @forelse(($homepageBlogs ?? collect()) as $post)
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="insights-card">
                         <div class="insights-card-body">
-                            <h4>Finance Emissions Guide</h4>
+                            <h4 class="{{ $loop->index === 1 ? 'insights-title-cyan' : '' }}">{{ $post->title }}</h4>
                             <div class="insights-content-row">
-                                <a href="#" class="insights-link">Explore Insights</a>
-                                <a href="#" class="insights-arrow">
+                                <a href="{{ route('article.show', $post) }}" class="insights-link">Explore Insights</a>
+                                <a href="{{ route('article.show', $post) }}" class="insights-arrow">
                                     <i class="fa-solid fa-arrow-up"></i>
                                 </a>
                             </div>
-                            <img src="{{ asset('images/blog1.jpg') }}" alt="Finance Emission" class="insights-image">
+                            <img src="{{ $post->image_url }}" alt="{{ $post->title }}" class="insights-image">
                         </div>
                     </div>
                 </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="insights-card">
-                        <div class="insights-card-body">
-                            <h4 class="insights-title-cyan">Supplier Data Exchange</h4>
-                            <div class="insights-content-row">
-                                <a href="#" class="insights-link">Explore Insights</a>
-                                <a href="#" class="insights-arrow">
-                                    <i class="fa-solid fa-arrow-up"></i>
-                                </a>
-                            </div>
-                            <img src="{{ asset('images/blog2.jpg') }}" alt="Supplier Data Exchange" class="insights-image">
-                        </div>
-                    </div>
+                @empty
+                <div class="col-12">
+                    <p class="text-center text-muted">No insights available yet. Check back soon.</p>
                 </div>
-
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="insights-card">
-                        <div class="insights-card-body">
-                            <h4>Scope 3 Decarbonization</h4>
-                            <div class="insights-content-row">
-                                <a href="#" class="insights-link">Explore Insights</a>
-                                <a href="#" class="insights-arrow">
-                                    <i class="fa-solid fa-arrow-up"></i>
-                                </a>
-                            </div>
-                            <img src="{{ asset('images/blog3.jpg') }}" alt="Corporate Integration" class="insights-image">
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </div>
@@ -295,50 +271,26 @@
             <h3>Stay Ahead of the Curve</h3>
             <h5 class="my-3">Discover verified carbon data and decarbonization insights aligned with SBTi and global disclosure frameworks.</h5>
             <div class="row mt-5">
+                @forelse(($homepageBlogs ?? collect()) as $post)
                 <div class="col-6">
                     <div class="insights-card-mobile">
                         <div class="insights-card-body-mobile">
-                            <h4>Finance Emissions Guide</h4>
+                            <h4 class="{{ $loop->index === 1 ? 'insights-title-cyan-mobile' : '' }}">{{ $post->title }}</h4>
                             <div class="insights-content-row-mobile">
-                                <a href="#" class="insights-link-mobile">Explore Insights</a>
-                                <a href="#" class="insights-arrow-mobile">
+                                <a href="{{ route('article.show', $post) }}" class="insights-link-mobile">Explore Insights</a>
+                                <a href="{{ route('article.show', $post) }}" class="insights-arrow-mobile">
                                     <img src="{{ asset('images/home/arrow.svg') }}" alt="Arrow">
                                 </a>
                             </div>
-                            <img src="{{ asset('images/blog1.jpg') }}" alt="Finance Emission" class="insights-image-mobile">
+                            <img src="{{ $post->image_url }}" alt="{{ $post->title }}" class="insights-image-mobile">
                         </div>
                     </div>
                 </div>
-
-                <div class="col-6">
-                    <div class="insights-card-mobile">
-                        <div class="insights-card-body-mobile">
-                            <h4 class="insights-title-cyan-mobile">Supplier Data Exchange</h4>
-                            <div class="insights-content-row-mobile">
-                                <a href="#" class="insights-link-mobile">Explore Insights</a>
-                                <a href="#" class="insights-arrow-mobile">
-                                    <img src="{{ asset('images/home/arrow.svg') }}" alt="Arrow">
-                                </a>
-                            </div>
-                            <img src="{{ asset('images/blog2.jpg') }}" alt="Supplier Data Exchange" class="insights-image-mobile">
-                        </div>
-                    </div>
+                @empty
+                <div class="col-12">
+                    <p class="text-center text-muted">No insights available yet. Check back soon.</p>
                 </div>
-
-                <div class="col-6">
-                    <div class="insights-card-mobile">
-                        <div class="insights-card-body-mobile">
-                            <h4>Scope 3 Decarbonization</h4>
-                            <div class="insights-content-row-mobile">
-                                <a href="#" class="insights-link-mobile">Explore Insights</a>
-                                <a href="#" class="insights-arrow-mobile">
-                                    <img src="{{ asset('images/home/arrow.svg') }}" alt="Arrow">
-                                </a>
-                            </div>
-                            <img src="{{ asset('images/blog3.jpg') }}" alt="Corporate Integration" class="insights-image-mobile">
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </div>
@@ -443,3 +395,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 @endsection
+

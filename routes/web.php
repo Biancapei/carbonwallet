@@ -7,6 +7,8 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\Auth\SocialAuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 
 // Waitlist routes
 Route::get('/waitlist', [App\Http\Controllers\WaitlistController::class, 'index'])->name('waitlist');
@@ -77,17 +79,19 @@ Route::get('/health', function () {
     ]);
 });
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('landing');
 
 Route::get('/solutions', function () {
     return view('solutions');
 });
 
-Route::get('/blogs', function () {
-    return view('blogs');
-});
+Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
+
+Route::get('/blog', function () {
+    return redirect()->route('blogs');
+})->name('blog');
+
+Route::get('/article/{blog:slug}', [HomeController::class, 'show'])->name('article.show');
 
 Route::get('/about', function () {
     return view('about');
@@ -164,6 +168,15 @@ Route::prefix('account')->name('account.')->group(function () {
 
 });
 
-Auth::routes();
+Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::get('/create', [AdminController::class, 'create'])->name('create');
+    Route::post('/', [AdminController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [AdminController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [AdminController::class, 'update'])->name('update');
+    Route::delete('/{id}', [AdminController::class, 'destroy'])->name('destroy');
+});

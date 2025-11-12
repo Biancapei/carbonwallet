@@ -38,12 +38,11 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
-
-    @if(request()->path() === 'about')
-        <link rel="stylesheet" href="{{ asset('css/about.css') }}">
+    @if(request()->is('blogs'))
+        <link rel="stylesheet" href="{{ asset('css/blogs.css') }}">
     @endif
 
-    @if(request()->path() === 'blogs')
+    @if(request()->is('article/*'))
         <link rel="stylesheet" href="{{ asset('css/blogs.css') }}">
     @endif
 
