@@ -80,6 +80,38 @@ Route::get('/health', function () {
     ]);
 });
 
+// Check migration status (temporary - remove after checking)
+Route::get('/check-migration', function() {
+    $hasBlogStatus = \Illuminate\Support\Facades\Schema::hasColumn('blogs', 'blog_status');
+    $hasCategory = \Illuminate\Support\Facades\Schema::hasColumn('blogs', 'category');
+    $hasMetaTitle = \Illuminate\Support\Facades\Schema::hasColumn('blogs', 'meta_title');
+    $hasMetaDescription = \Illuminate\Support\Facades\Schema::hasColumn('blogs', 'meta_description');
+    $hasMetaKeywords = \Illuminate\Support\Facades\Schema::hasColumn('blogs', 'meta_keywords');
+
+    // Check if blogs exist and are published
+    $totalBlogs = \App\Models\Blog::count();
+    $publishedBlogs = \App\Models\Blog::where('is_published', true)->count();
+    $statusPublishedBlogs = $hasBlogStatus ? \App\Models\Blog::where('blog_status', 'published')->count() : 0;
+
+    return response()->json([
+        'columns' => [
+            'blog_status_exists' => $hasBlogStatus,
+            'category_exists' => $hasCategory,
+            'meta_title_exists' => $hasMetaTitle,
+            'meta_description_exists' => $hasMetaDescription,
+            'meta_keywords_exists' => $hasMetaKeywords,
+            'all_columns_exist' => $hasBlogStatus && $hasCategory && $hasMetaTitle && $hasMetaDescription && $hasMetaKeywords
+        ],
+        'blogs' => [
+            'total_blogs' => $totalBlogs,
+            'published_via_is_published' => $publishedBlogs,
+            'published_via_blog_status' => $statusPublishedBlogs,
+            'published_via_scope' => \App\Models\Blog::published()->count()
+        ],
+        'message' => $hasBlogStatus && $hasCategory ? 'All migrations appear to have run!' : 'Some migrations may be missing.'
+    ], 200, [], JSON_PRETTY_PRINT);
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('landing');
 
 Route::get('/solutions', function () {
