@@ -118,6 +118,57 @@ Route::get('/create-admin-user', function() {
     }
 });
 
+// Temporary route to create storage symlink - REMOVE AFTER USE
+Route::get('/create-storage-link', function() {
+    try {
+        $target = storage_path('app/public');
+        $link = public_path('storage');
+        
+        // Remove existing link if it exists
+        if (file_exists($link) || is_link($link)) {
+            unlink($link);
+        }
+        
+        // Create the symlink
+        symlink($target, $link);
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Storage symlink created successfully',
+            'target' => $target,
+            'link' => $link,
+            'link_exists' => file_exists($link),
+            'is_link' => is_link($link),
+            'readable' => is_readable($link)
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'error' => $e->getMessage(),
+            'file' => $e->getFile() . ':' . $e->getLine()
+        ], 500);
+    }
+});
+
+// Check storage symlink status
+Route::get('/check-storage', function() {
+    $link = public_path('storage');
+    $target = storage_path('app/public');
+    
+    return response()->json([
+        'link_exists' => file_exists($link),
+        'is_link' => is_link($link),
+        'link_path' => $link,
+        'target_path' => $target,
+        'target_exists' => file_exists($target),
+        'readable' => is_readable($link),
+        'blog_images_dir' => storage_path('app/public/blog-images'),
+        'blog_images_exists' => file_exists(storage_path('app/public/blog-images')),
+        'blog_images_files' => file_exists(storage_path('app/public/blog-images')) ? 
+            array_slice(scandir(storage_path('app/public/blog-images')), 2) : []
+    ], 200, [], JSON_PRETTY_PRINT);
+});
+
 // Check if user exists in database
 Route::get('/check-user', function() {
     try {
