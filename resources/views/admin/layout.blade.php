@@ -6,15 +6,6 @@
     <title>Admin Panel - {{ config('app.name', 'CarbonAI') }}</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-    @php
-        $assets = \App\Helpers\AssetHelper::getViteAssets();
-    @endphp
-    @if($assets['css'] && $assets['js'])
-        <link rel="stylesheet" href="{{ $assets['css'] }}">
-        <script src="{{ $assets['js'] }}"></script>
-    @else
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endif
     <link rel="stylesheet" href="{{ app()->environment('production') ? secure_asset('css/admin.css') : asset('css/admin.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
