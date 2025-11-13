@@ -123,30 +123,4 @@ class AdminController extends Controller
             return redirect()->route('admin.index')->with('error', 'Blog post not found or deletion failed.');
         }
     }
-
-    /**
-     * Generate a unique slug for the blog post
-     *
-     * @param string $title
-     * @param int|null $excludeId Blog ID to exclude from uniqueness check (for updates)
-     * @return string
-     */
-    private function generateUniqueSlug($title, $excludeId = null)
-    {
-        $slug = Str::slug($title);
-        $originalSlug = $slug;
-        $counter = 1;
-
-        // Check if slug exists, and if so, append a number until we find a unique one
-        while (Blog::where('slug', $slug)
-            ->when($excludeId, function ($query) use ($excludeId) {
-                return $query->where('id', '!=', $excludeId);
-            })
-            ->exists()) {
-            $slug = $originalSlug . '-' . $counter;
-            $counter++;
-        }
-
-        return $slug;
-    }
 }

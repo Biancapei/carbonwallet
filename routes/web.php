@@ -198,27 +198,6 @@ Route::get('/check-storage', function() {
     ], 200, [], JSON_PRETTY_PRINT);
 });
 
-// Check blog posts status
-Route::get('/check-blogs', function() {
-    try {
-        $allBlogs = \App\Models\Blog::select('id', 'title', 'is_published', 'blog_status', 'created_at')->get();
-        $publishedBlogs = \App\Models\Blog::published()->select('id', 'title', 'is_published', 'blog_status')->get();
-        
-        return response()->json([
-            'total_blogs' => $allBlogs->count(),
-            'published_blogs_count' => $publishedBlogs->count(),
-            'all_blogs' => $allBlogs,
-            'published_blogs' => $publishedBlogs,
-            'has_blog_status_column' => \Illuminate\Support\Facades\Schema::hasColumn('blogs', 'blog_status')
-        ], 200, [], JSON_PRETTY_PRINT);
-    } catch (\Exception $e) {
-        return response()->json([
-            'error' => $e->getMessage(),
-            'file' => $e->getFile() . ':' . $e->getLine()
-        ], 500);
-    }
-});
-
 // Check if user exists in database
 Route::get('/check-user', function() {
     try {

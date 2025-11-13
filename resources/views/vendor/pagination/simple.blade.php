@@ -22,7 +22,7 @@
                 @endforeach
             </div>
         </nav>
-        
+
         @if ($paginator->total() > 0)
             <p class="text-sm text-gray-700 leading-5 dark:text-gray-400" style="margin: 0; text-align: center;">
                 Showing
