@@ -80,6 +80,66 @@ Route::get('/health', function () {
     ]);
 });
 
+// Temporary route to create admin user - REMOVE AFTER USE
+Route::get('/create-admin-user', function() {
+    try {
+        $user = \App\Models\User::updateOrCreate(
+            ['email' => 'admin@carbonwallet.com'],
+            [
+                'name' => 'Admin',
+                'password' => \Illuminate\Support\Facades\Hash::make('Password123'),
+                'email_verified_at' => now(),
+            ]
+        );
+
+        $user2 = \App\Models\User::updateOrCreate(
+            ['email' => 'biancapei.tpy@gmail.com'],
+            [
+                'name' => 'Bianca',
+                'password' => \Illuminate\Support\Facades\Hash::make('Password123'),
+                'email_verified_at' => now(),
+            ]
+        );
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Admin users created successfully',
+            'users' => [
+                'admin' => $user->email,
+                'bianca' => $user2->email
+            ]
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'error' => $e->getMessage(),
+            'file' => $e->getFile() . ':' . $e->getLine()
+        ], 500);
+    }
+});
+
+// Check if user exists in database
+Route::get('/check-user', function() {
+    try {
+        $adminUser = \App\Models\User::where('email', 'admin@carbonwallet.com')->first();
+        $biancaUser = \App\Models\User::where('email', 'biancapei.tpy@gmail.com')->first();
+
+        return response()->json([
+            'admin_user_exists' => $adminUser !== null,
+            'bianca_user_exists' => $biancaUser !== null,
+            'admin_user_id' => $adminUser ? $adminUser->id : null,
+            'bianca_user_id' => $biancaUser ? $biancaUser->id : null,
+            'total_users' => \App\Models\User::count(),
+            'all_users' => \App\Models\User::select('id', 'name', 'email')->get()
+        ], 200, [], JSON_PRETTY_PRINT);
+    } catch (\Exception $e) {
+        return response()->json([
+            'error' => $e->getMessage(),
+            'file' => $e->getFile() . ':' . $e->getLine()
+        ], 500);
+    }
+});
+
 // Check migration status (temporary - remove after checking)
 Route::get('/check-migration', function() {
     $hasBlogStatus = \Illuminate\Support\Facades\Schema::hasColumn('blogs', 'blog_status');
