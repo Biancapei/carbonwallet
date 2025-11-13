@@ -827,6 +827,7 @@ body.admin-dashboard {
     transition: text-decoration 0.3s;
     background: #f3f4f6;
     border: none;
+    font-family: Montserrat;
 }
 
 /* Table styling */
@@ -1565,6 +1566,26 @@ select#category option:checked {
 }
 
 /* Admin Pagination Styles */
+/* Fix pagination arrow size */
+nav[role="navigation"][aria-label="Pagination Navigation"] svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+nav[role="navigation"][aria-label="Pagination Navigation"] a[rel="prev"],
+nav[role="navigation"][aria-label="Pagination Navigation"] a[rel="next"],
+nav[role="navigation"][aria-label="Pagination Navigation"] span[aria-disabled="true"] {
+    padding: 6px 8px !important;
+    min-width: auto !important;
+}
+
+nav[role="navigation"][aria-label="Pagination Navigation"] a[rel="prev"] svg,
+nav[role="navigation"][aria-label="Pagination Navigation"] a[rel="next"] svg,
+nav[role="navigation"][aria-label="Pagination Navigation"] span[aria-disabled="true"] svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
 .pagination {
     display: flex;
     list-style: none;
