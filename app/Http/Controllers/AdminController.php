@@ -37,7 +37,7 @@ class AdminController extends Controller
 
         $data = $request->only(['title', 'description', 'category', 'blog_status', 'content', 'is_published', 'meta_title', 'meta_description', 'meta_keywords']);
         $data['user_id'] = auth()->id();
-        $data['slug'] = $this->generateUniqueSlug($request->title);
+        $data['slug'] = Str::slug($request->title);
         $data['is_published'] = ($data['blog_status'] ?? 'draft') === 'published';
 
         // Handle image upload
@@ -82,10 +82,7 @@ class AdminController extends Controller
             ]);
 
             $data = $request->only(['title', 'description', 'category', 'blog_status', 'content', 'is_published', 'meta_title', 'meta_description', 'meta_keywords']);
-            // Only update slug if title changed
-            if ($request->title !== $blog->title) {
-                $data['slug'] = $this->generateUniqueSlug($request->title, $blog->id);
-            }
+            $data['slug'] = Str::slug($request->title);
             $data['is_published'] = ($data['blog_status'] ?? 'draft') === 'published';
 
             // Handle image upload
