@@ -36,9 +36,35 @@ class Blog extends Model
 
         static::creating(function ($blog) {
             if (empty($blog->slug)) {
-                $blog->slug = Str::slug($blog->title);
+                $blog->slug = static::generateUniqueSlug($blog->title);
             }
         });
+    }
+
+    /**
+     * Generate a unique slug for the blog post
+     *
+     * @param string $title
+     * @param int|null $excludeId Blog ID to exclude from uniqueness check (for updates)
+     * @return string
+     */
+    public static function generateUniqueSlug($title, $excludeId = null)
+    {
+        $slug = Str::slug($title);
+        $originalSlug = $slug;
+        $counter = 1;
+
+        // Check if slug exists, and if so, append a number until we find a unique one
+        while (static::where('slug', $slug)
+            ->when($excludeId, function ($query) use ($excludeId) {
+                return $query->where('id', '!=', $excludeId);
+            })
+            ->exists()) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return $slug;
     }
 
     public function user()

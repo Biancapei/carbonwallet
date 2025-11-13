@@ -37,7 +37,7 @@ class AdminController extends Controller
 
         $data = $request->only(['title', 'description', 'category', 'blog_status', 'content', 'is_published', 'meta_title', 'meta_description', 'meta_keywords']);
         $data['user_id'] = auth()->id();
-        $data['slug'] = Str::slug($request->title);
+        $data['slug'] = $this->generateUniqueSlug($request->title);
         $data['is_published'] = ($data['blog_status'] ?? 'draft') === 'published';
 
         // Handle image upload
@@ -82,7 +82,10 @@ class AdminController extends Controller
             ]);
 
             $data = $request->only(['title', 'description', 'category', 'blog_status', 'content', 'is_published', 'meta_title', 'meta_description', 'meta_keywords']);
-            $data['slug'] = Str::slug($request->title);
+            // Only update slug if title changed
+            if ($request->title !== $blog->title) {
+                $data['slug'] = $this->generateUniqueSlug($request->title, $blog->id);
+            }
             $data['is_published'] = ($data['blog_status'] ?? 'draft') === 'published';
 
             // Handle image upload
@@ -122,5 +125,31 @@ class AdminController extends Controller
         } catch (\Exception $e) {
             return redirect()->route('admin.index')->with('error', 'Blog post not found or deletion failed.');
         }
+    }
+
+    /**
+     * Generate a unique slug for the blog post
+     *
+     * @param string $title
+     * @param int|null $excludeId Blog ID to exclude from uniqueness check (for updates)
+     * @return string
+     */
+    private function generateUniqueSlug($title, $excludeId = null)
+    {
+        $slug = Str::slug($title);
+        $originalSlug = $slug;
+        $counter = 1;
+
+        // Check if slug exists, and if so, append a number until we find a unique one
+        while (Blog::where('slug', $slug)
+            ->when($excludeId, function ($query) use ($excludeId) {
+                return $query->where('id', '!=', $excludeId);
+            })
+            ->exists()) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return $slug;
     }
 }
