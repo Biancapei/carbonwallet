@@ -2,39 +2,39 @@
 
 @section('content')
 <div>
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-        <h1 style="font-size: 24px; font-weight: bold; color: #374151; margin: 0;">Create New Blog Post</h1>
+    <div class="admin-create-header">
+        <h1>Create New Blog Post</h1>
         <a href="{{ route('admin.index') }}" class="back-to-posts-btn">
             <i class="fa-solid fa-arrow-left"></i> &nbsp;Back to Posts
         </a>
     </div>
 
-    <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-        <form method="POST" action="{{ route('admin.store') }}" enctype="multipart/form-data" style="padding: 30px;">
+    <div class="admin-form-container">
+        <form method="POST" action="{{ route('admin.store') }}" enctype="multipart/form-data" class="admin-form">
             @csrf
 
             <!-- Title -->
-            <div style="margin-bottom: 24px;">
-                <label for="title" style="display: block; font-weight: 600; color: #374151; margin-bottom: 8px; font-size: 14px;">
+            <div class="admin-form-group">
+                <label for="title" class="admin-form-label">
                     Blog Title
                 </label>
                 <input type="text"
                        id="title"
                        name="title"
                        value="{{ old('title') }}"
-                       style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; background: white; color: #374151; box-sizing: border-box;"
+                       class="admin-form-input"
                        placeholder="Enter blog post title"
                        required>
                 @error('title')
-                    <p style="margin-top: 4px; font-size: 12px; color: #dc2626;">{{ $message }}</p>
+                    <p class="admin-form-error">{{ $message }}</p>
                 @enderror
             </div>
 
             <!-- Category and Status Row -->
-            <div style="display: flex; gap: 16px; margin-bottom: 24px;">
+            <div class="admin-form-row">
                 <!-- Category -->
-                <div style="flex: 1;">
-                    <label for="category" style="display: block; font-weight: 600; color: #374151; margin-bottom: 8px; font-size: 14px;">
+                <div>
+                    <label for="category" class="admin-form-label">
                         Category
                     </label>
                     <div class="custom-dropdown">
@@ -64,13 +64,13 @@
                         </ul>
                     </div>
                     @error('category')
-                        <p style="margin-top: 4px; font-size: 12px; color: #dc2626;">{{ $message }}</p>
+                        <p class="admin-form-error">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <!-- Blog Status -->
-                <div style="flex: 1;">
-                    <label for="blog_status" style="display: block; font-weight: 600; color: #374151; margin-bottom: 8px; font-size: 14px;">
+                <div>
+                    <label for="blog_status" class="admin-form-label">
                         Blog Status *
                     </label>
                     <div class="custom-dropdown">
@@ -96,50 +96,50 @@
                         </ul>
                     </div>
                     @error('blog_status')
-                        <p style="margin-top: 4px; font-size: 12px; color: #dc2626;">{{ $message }}</p>
+                        <p class="admin-form-error">{{ $message }}</p>
                     @enderror
                 </div>
             </div>
 
             <!-- Meta Title -->
-            <div style="margin-bottom: 24px;">
-                <label for="meta_title" style="display: block; font-weight: 600; color: #374151; margin-bottom: 8px; font-size: 14px;">
+            <div class="admin-form-group">
+                <label for="meta_title" class="admin-form-label">
                     Meta Title
                 </label>
                 <input type="text"
                        id="meta_title"
                        name="meta_title"
                        value="{{ old('meta_title') }}"
-                       style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; background: white; color: #374151; box-sizing: border-box;"
+                       class="admin-form-input"
                        placeholder="Enter meta title for SEO">
                 @error('meta_title')
-                    <p style="margin-top: 4px; font-size: 12px; color: #dc2626;">{{ $message }}</p>
+                    <p class="admin-form-error">{{ $message }}</p>
                 @enderror
             </div>
 
             <!-- Meta Description -->
-            <div style="margin-bottom: 24px;">
-                <label for="meta_description" style="display: block; font-weight: 600; color: #374151; margin-bottom: 8px; font-size: 14px;">
+            <div class="admin-form-group">
+                <label for="meta_description" class="admin-form-label">
                     Meta Description
                 </label>
                 <textarea id="meta_description"
                           name="meta_description"
                           rows="3"
-                          style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; background: white; color: #374151; resize: vertical; box-sizing: border-box;"
+                          class="admin-form-textarea"
                           placeholder="Enter meta description for SEO">{{ old('meta_description') }}</textarea>
                 @error('meta_description')
-                    <p style="margin-top: 4px; font-size: 12px; color: #dc2626;">{{ $message }}</p>
+                    <p class="admin-form-error">{{ $message }}</p>
                 @enderror
             </div>
 
             <!-- Meta Keywords -->
-            <div style="margin-bottom: 24px;">
-                <label for="meta_keywords_input" style="display: block; font-weight: 600; color: #374151; margin-bottom: 8px; font-size: 14px;">
+            <div class="admin-form-group">
+                <label for="meta_keywords_input" class="admin-form-label">
                     Meta Keywords
                 </label>
 
                 <!-- Tags Container -->
-                <div id="keywords-tags-container" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; min-height: 32px; padding: 8px; border: 1px solid #d1d5db; border-radius: 6px; background: white;">
+                <div id="keywords-tags-container" class="keywords-tags-container">
                     <!-- Tags will be displayed here -->
                 </div>
 
@@ -149,50 +149,50 @@
                 <!-- Input for adding new keywords -->
                 <input type="text"
                        id="meta_keywords_input"
-                       style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; background: white; color: #374151; box-sizing: border-box;"
+                       class="admin-form-input"
                        placeholder="Type and press Enter to add keyword">
                 <!-- Counter -->
-                <p id="keywords-counter" style="margin-top: 4px; font-size: 12px; color: #6b7280; text-align: right;">15 keywords remaining</p>
+                <p id="keywords-counter" class="keywords-counter">15 keywords remaining</p>
                 @error('meta_keywords')
-                    <p style="margin-top: 4px; font-size: 12px; color: #dc2626;">{{ $message }}</p>
+                    <p class="admin-form-error">{{ $message }}</p>
                 @enderror
             </div>
 
             <!-- Banner Image -->
-                   <div style="margin-bottom: 24px;">
-                       <label style="display: block; font-weight: 600; color: #374151; margin-bottom: 8px; font-size: 14px;">
-                           Banner Image
-                       </label>
-                       <p style="font-size: 12px; color: #6b7280; margin-bottom: 8px;">
-                           In JPEG or PNG format, Width (416px) Height (280px)
-                       </p>
-                       <div style="display: flex; align-items: center; gap: 10px;">
-                           <input type="file"
-                                  id="image"
-                                  name="image"
-                                  accept="image/*"
-                                  style="display: none;"
-                                  onchange="updateFileName(this); previewImage(this)">
-                           <button type="button" onclick="document.getElementById('image').click()" style="background: #f3f4f6; border: 1px solid #d1d5db; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; color: #374151;">
-                               Browse...
-                           </button>
-                           <input type="text" id="file-name" placeholder="No file chosen" readonly style="flex: 1; padding: 8px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; background: #f9fafb; color: #6b7280;">
-                       </div>
-                       <div id="image-preview" class="image-preview" style="display: none;">
-                           <img id="preview-img" src="" alt="Preview">
-                           <br>
-                           <button type="button" onclick="removeImage()">Remove Image</button>
-                       </div>
-                       @error('image')
-                           <p style="margin-top: 4px; font-size: 12px; color: #dc2626;">{{ $message }}</p>
-                       @enderror
-                   </div>
+            <div class="admin-form-group">
+                <label class="admin-form-label">
+                    Banner Image
+                </label>
+                <p class="admin-form-help-text">
+                    In JPEG or PNG format, Width (416px) Height (280px)
+                </p>
+                <div class="admin-file-upload-wrapper">
+                    <input type="file"
+                           id="image"
+                           name="image"
+                           accept="image/*"
+                           class="admin-file-input"
+                           onchange="updateFileName(this); previewImage(this)">
+                    <button type="button" onclick="document.getElementById('image').click()" class="admin-file-browse-btn">
+                        Browse...
+                    </button>
+                    <input type="text" id="file-name" placeholder="No file chosen" readonly class="admin-file-name">
+                </div>
+                <div id="image-preview" class="image-preview">
+                    <img id="preview-img" src="" alt="Preview">
+                    <br>
+                    <button type="button" onclick="removeImage()">Remove Image</button>
+                </div>
+                @error('image')
+                    <p class="admin-form-error">{{ $message }}</p>
+                @enderror
+            </div>
 
-                   <!-- Content -->
-                   <div style="margin-bottom: 24px;">
-                       <label for="content" style="display: block; font-weight: 600; color: #374151; margin-bottom: 8px; font-size: 14px;">
-                           Content *
-                       </label>
+            <!-- Content -->
+            <div class="admin-form-group">
+                <label for="content" class="admin-form-label">
+                    Content *
+                </label>
 
                        <!-- Rich Text Editor -->
                        <div class="rich-text-editor">
@@ -298,10 +298,10 @@
                            <textarea name="content" id="content-hidden" style="display: none;" required>{{ old('content') }}</textarea>
                        </div>
 
-                       @error('content')
-                           <p style="margin-top: 4px; font-size: 12px; color: #dc2626;">{{ $message }}</p>
-                       @enderror
-                   </div>
+                @error('content')
+                    <p class="admin-form-error">{{ $message }}</p>
+                @enderror
+            </div>
 
             <!-- Published Status -->
             {{-- <div style="margin-bottom: 30px;">
@@ -316,8 +316,8 @@
             </div> --}}
 
             <!-- Submit Button -->
-            <div class="save-post-btn" style="text-align: center;">
-                <button type="submit" onmouseover="this.style.background='#16d3ca'" onmouseout="this.style.background='#000'">
+            <div class="save-post-btn">
+                <button type="submit">
                     Save Post
                 </button>
             </div>
@@ -331,10 +331,10 @@ function updateFileName(input) {
     const fileNameInput = document.getElementById('file-name');
     if (input.files && input.files[0]) {
         fileNameInput.value = input.files[0].name;
-        fileNameInput.style.color = '#374151';
+        fileNameInput.classList.add('has-file');
     } else {
         fileNameInput.value = 'No file chosen';
-        fileNameInput.style.color = '#6b7280';
+        fileNameInput.classList.remove('has-file');
     }
 }
 
@@ -362,7 +362,7 @@ function removeImage() {
     preview.style.display = 'none';
     fileInput.value = '';
     fileNameInput.value = 'No file chosen';
-    fileNameInput.style.color = '#6b7280';
+    fileNameInput.classList.remove('has-file');
 }
 
 // Rich text editor functionality
@@ -696,14 +696,15 @@ document.querySelector('form').addEventListener('submit', function(e) {
         keywordsContainer.innerHTML = '';
         keywords.forEach(keyword => {
             const tag = document.createElement('div');
-            tag.style.cssText = 'display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 4px; font-size: 14px; color: #374151;';
+            tag.className = 'keyword-tag';
 
             const text = document.createElement('span');
+            text.className = 'keyword-tag-text';
             text.textContent = keyword;
 
             const removeBtn = document.createElement('span');
+            removeBtn.className = 'keyword-tag-remove';
             removeBtn.innerHTML = '×';
-            removeBtn.style.cssText = 'cursor: pointer; font-size: 18px; color: #6b7280; font-weight: bold; line-height: 1; margin-left: 4px;';
             removeBtn.addEventListener('click', () => removeKeyword(keyword));
 
             tag.appendChild(text);
@@ -722,13 +723,12 @@ document.querySelector('form').addEventListener('submit', function(e) {
         const counter = document.getElementById('keywords-counter');
         const remaining = 15 - keywords.length;
         counter.textContent = remaining + ' keywords remaining';
+        counter.className = 'keywords-counter';
         if (remaining <= 0) {
-            counter.style.color = '#dc2626';
+            counter.classList.add('error');
             counter.textContent = 'Maximum reached (15 keywords)';
         } else if (remaining <= 3) {
-            counter.style.color = '#f59e0b';
-        } else {
-            counter.style.color = '#6b7280';
+            counter.classList.add('warning');
         }
     }
 

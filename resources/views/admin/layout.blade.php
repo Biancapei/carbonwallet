@@ -18,7 +18,7 @@
                 <span>Home</span>
             </a>
             <a href="{{ route('admin.index') }}" class="nav-item {{ request()->routeIs('admin.*') ? 'active' : '' }}">
-                <i class="fas fa-blog"></i>
+                <i class="fa-regular fa-note-sticky"></i>
                 <span>Blogs</span>
             </a>
         </nav>
