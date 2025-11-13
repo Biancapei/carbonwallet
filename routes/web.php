@@ -124,17 +124,17 @@ Route::get('/create-storage-link', function() {
         $target = storage_path('app/public');
         $link = public_path('storage');
         $blogImagesDir = storage_path('app/public/blog-images');
-        
+
         // Create storage/app/public directory if it doesn't exist
         if (!file_exists($target)) {
             mkdir($target, 0755, true);
         }
-        
+
         // Create blog-images directory if it doesn't exist
         if (!file_exists($blogImagesDir)) {
             mkdir($blogImagesDir, 0755, true);
         }
-        
+
         // Remove existing link if it exists
         if (file_exists($link) || is_link($link)) {
             if (is_link($link)) {
@@ -148,10 +148,10 @@ Route::get('/create-storage-link', function() {
                 ], 400);
             }
         }
-        
+
         // Create the symlink
         $symlinkCreated = symlink($target, $link);
-        
+
         return response()->json([
             'success' => $symlinkCreated,
             'message' => $symlinkCreated ? 'Storage symlink created successfully' : 'Failed to create symlink',
@@ -196,6 +196,27 @@ Route::get('/check-storage', function() {
         'blog_images_files' => file_exists(storage_path('app/public/blog-images')) ?
             array_slice(scandir(storage_path('app/public/blog-images')), 2) : []
     ], 200, [], JSON_PRETTY_PRINT);
+});
+
+// Check blog posts status
+Route::get('/check-blogs', function() {
+    try {
+        $allBlogs = \App\Models\Blog::select('id', 'title', 'is_published', 'blog_status', 'created_at')->get();
+        $publishedBlogs = \App\Models\Blog::published()->select('id', 'title', 'is_published', 'blog_status')->get();
+        
+        return response()->json([
+            'total_blogs' => $allBlogs->count(),
+            'published_blogs_count' => $publishedBlogs->count(),
+            'all_blogs' => $allBlogs,
+            'published_blogs' => $publishedBlogs,
+            'has_blog_status_column' => \Illuminate\Support\Facades\Schema::hasColumn('blogs', 'blog_status')
+        ], 200, [], JSON_PRETTY_PRINT);
+    } catch (\Exception $e) {
+        return response()->json([
+            'error' => $e->getMessage(),
+            'file' => $e->getFile() . ':' . $e->getLine()
+        ], 500);
+    }
 });
 
 // Check if user exists in database
