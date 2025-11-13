@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Schema;
 
 class Blog extends Model
 {
@@ -58,9 +59,17 @@ class Blog extends Model
 
     public function scopePublished($query)
     {
-        return $query->where(function ($q) {
-            $q->where('is_published', true)
-              ->orWhere('blog_status', 'published');
-        });
+        // Check if blog_status column exists
+        $hasBlogStatus = Schema::hasColumn('blogs', 'blog_status');
+
+        if ($hasBlogStatus) {
+            return $query->where(function ($q) {
+                $q->where('is_published', true)
+                  ->orWhere('blog_status', 'published');
+            });
+        } else {
+            // Fallback to is_published only if blog_status column doesn't exist
+            return $query->where('is_published', true);
+        }
     }
 }
