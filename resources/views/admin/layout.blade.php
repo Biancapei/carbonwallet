@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Admin Panel - {{ config('app.name', 'CarbonAI') }}</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
@@ -41,10 +42,7 @@
                 <button class="hamburger-btn" onclick="toggleSidebar()" id="toggleBtn">
                     <i class="fas fa-bars"></i>
                 </button>
-                <img src="{{ app()->environment('production') ? secure_asset('images/logo.svg') : asset('images/logo.svg') }}" class="logo-img-header">
-                <div class="header-brand">
-                    <span class="header-title">{{ config('app.name', 'CarbonAI') }}</span>
-                </div>
+                <img src="{{ app()->environment('production') ? secure_asset('images/carbonlogoo.png') : asset('images/carbonlogoo.png') }}" class="logo-img-header">
             </div>
             <div class="header-right">
                 <span class="header-email">{{ auth()->user()->email }}</span>

@@ -590,7 +590,7 @@ body.admin-dashboard {
 }
 
 .admin-header {
-    background: white;
+    background: darkgray;
     padding: 16px 24px;
     display: flex;
     align-items: center;
@@ -649,7 +649,7 @@ body.admin-dashboard {
 }
 
 .header-email {
-    color: #374151;
+    color: #fff;
     font-size: 14px;
     font-weight: 400;
 }
@@ -987,6 +987,19 @@ body.admin-dashboard {
     background: none;
 }
 
+/* Editor button as label for file input */
+label.editor-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    cursor: pointer;
+}
+
+label.editor-btn input[type="file"] {
+    display: none;
+}
+
 .font-size-select,
 .editor-dropdown {
     padding: 6px 10px;
@@ -1121,10 +1134,243 @@ select#category option:checked {
     margin: 5px 0;
 }
 
+/* Headings in editor should keep the same text color as regular text */
+.editor-content h1,
+.editor-content h2,
+.editor-content h3,
+.editor-content h4,
+.editor-content h5,
+.editor-content h6 {
+    color: inherit !important;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.editor-content h2 {
+    font-size: 1.5rem;
+}
+
+.editor-content h3 {
+    font-size: 1.25rem;
+}
+
+.editor-content h4 {
+    font-size: 1.125rem;
+}
+
+.editor-content h5 {
+    font-size: 1rem;
+}
+
+.editor-content h6 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.editor-content blockquote {
+    border-left: 4px solid #16d3ca;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    color: inherit;
+    font-style: italic;
+    background: rgba(22, 211, 202, 0.05);
+    border-radius: 4px;
+}
+
 /* Ensure color formatting works properly */
 .editor-content span[style*="background-color"] {
     padding: 1px 2px;
     border-radius: 2px;
+}
+
+/* Images in editor content */
+.editor-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Image alignment classes */
+.editor-content .content-image {
+    cursor: pointer;
+    display: block;
+    clear: both;
+    outline: none !important;
+    outline-offset: 0 !important;
+}
+
+.editor-content .content-image-left {
+    margin: 1rem 0 1rem 0 !important;
+    margin-right: auto !important;
+    float: none;
+    clear: both;
+}
+
+.editor-content .content-image-center {
+    display: block;
+    margin: 1rem auto !important;
+    float: none;
+    clear: both;
+}
+
+.editor-content .content-image-right {
+    margin: 1rem 0 1rem 0 !important;
+    margin-left: auto !important;
+    float: none;
+    clear: both;
+}
+
+/* Links in editor content */
+.editor-content a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #0d6efd;
+    text-underline-offset: 2px;
+}
+
+.editor-content a:hover {
+    text-decoration-color: #0a58ca;
+}
+
+/* Link Modal */
+.link-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(2px);
+}
+
+.link-modal {
+    background: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.2s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.link-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.link-modal-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.link-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.link-modal-close:hover {
+    color: #111827;
+}
+
+.link-modal-body {
+    padding: 1.5rem;
+}
+
+.link-modal-form-group {
+    margin-bottom: 1.25rem;
+}
+
+.link-modal-form-group:last-child {
+    margin-bottom: 0;
+}
+
+.link-modal-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.link-modal-input {
+    width: 100%;
+    padding: .5rem 0;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.link-modal-input:focus {
+    outline: none;
+    border-color: #16d3ca;
+    box-shadow: 0 0 0 3px rgba(22, 211, 202, 0.1);
+}
+
+.link-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.link-modal-btn {
+    padding: 0.625rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.link-modal-btn-cancel {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.link-modal-btn-cancel:hover {
+    background: #e5e7eb;
+}
+
+.link-modal-btn-submit {
+    background: #16d3ca;
+    color: #fff;
+}
+
+.link-modal-btn-submit:hover {
+    background: #0fa3b8;
 }
 
 /* HOME PAGE */

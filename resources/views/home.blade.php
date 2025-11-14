@@ -243,16 +243,18 @@
             <div class="row my-5">
                 @forelse(($homepageBlogs ?? collect()) as $post)
                 <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="insights-card">
-                        <div class="insights-card-body">
-                            <h4 class="{{ $loop->index === 1 ? 'insights-title-cyan' : '' }}">{{ $post->title }}</h4>
+                    <div class="insights-card" id="blog-card-{{ $post->id }}">
+                        <div class="insights-card-body" id="blogContent-{{ $post->id }}">
+                            <h4 class="{{ $loop->index === 1 ? 'insights-title-cyan' : '' }}" id="blogTitle-{{ $post->id }}">{{ $post->title }}</h4>
                             <div class="insights-content-row">
                                 <a href="{{ route('article.show', $post) }}" class="insights-link">Explore Insights</a>
                                 <a href="{{ route('article.show', $post) }}" class="insights-arrow">
                                     <i class="fa-solid fa-arrow-up"></i>
                                 </a>
                             </div>
-                            <img src="{{ $post->image_url }}" alt="{{ $post->title }}" class="insights-image">
+                            <div id="featureImage-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" class="insights-image" id="featureImage-img-{{ $post->id }}">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -273,16 +275,18 @@
             <div class="row mt-5">
                 @forelse(($homepageBlogs ?? collect()) as $post)
                 <div class="col-6">
-                    <div class="insights-card-mobile">
-                        <div class="insights-card-body-mobile">
-                            <h4 class="{{ $loop->index === 1 ? 'insights-title-cyan-mobile' : '' }}">{{ $post->title }}</h4>
+                    <div class="insights-card-mobile" id="blog-card-mobile-{{ $post->id }}">
+                        <div class="insights-card-body-mobile" id="blogContent-mobile-{{ $post->id }}">
+                            <h4 class="{{ $loop->index === 1 ? 'insights-title-cyan-mobile' : '' }}" id="blogTitle-mobile-{{ $post->id }}">{{ $post->title }}</h4>
                             <div class="insights-content-row-mobile">
                                 <a href="{{ route('article.show', $post) }}" class="insights-link-mobile">Explore Insights</a>
                                 <a href="{{ route('article.show', $post) }}" class="insights-arrow-mobile">
                                     <img src="{{ asset('images/home/arrow.svg') }}" alt="Arrow">
                                 </a>
                             </div>
-                            <img src="{{ $post->image_url }}" alt="{{ $post->title }}" class="insights-image-mobile">
+                            <div id="featureImage-mobile-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" class="insights-image-mobile" id="featureImage-img-mobile-{{ $post->id }}">
+                            </div>
                         </div>
                     </div>
                 </div>

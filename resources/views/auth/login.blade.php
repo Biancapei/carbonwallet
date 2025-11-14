@@ -11,7 +11,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #FDFDFC;
             padding: 20px;
         }
         .login-box {
@@ -85,6 +84,7 @@
             font-weight: 500;
             cursor: pointer;
             transition: background 0.2s;
+            font-family: Montserrat;
         }
         .btn-submit:hover {
             background: #000;

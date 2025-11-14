@@ -18,15 +18,32 @@
             $publicPath = public_path(ltrim($imagePath, '/'));
             $cacheVersion = file_exists($publicPath) ? filemtime($publicPath) : time();
         @endphp
-        <meta property="og:image" content="{{ $metaImageUrl }}?v={{ $cacheVersion }}">
-        <meta property="og:image:secure_url" content="{{ $metaImageUrl }}?v={{ $cacheVersion }}">
-        <meta property="og:image:type" content="image/png">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630">
-        <meta property="og:image:alt" content="@yield('meta_title', 'Carbon AI')">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="{{ $metaImageUrl }}?v={{ $cacheVersion }}">
+        @unless(request()->is('article/*'))
+            {{-- Only add default OG tags for non-article pages --}}
+            <meta property="og:image" content="{{ $metaImageUrl }}?v={{ $cacheVersion }}">
+            <meta property="og:image:secure_url" content="{{ $metaImageUrl }}?v={{ $cacheVersion }}">
+            <meta property="og:image:type" content="image/png">
+            <meta property="og:image:width" content="1200">
+            <meta property="og:image:height" content="630">
+            <meta property="og:image:alt" content="@yield('meta_title', 'Carbon AI')">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:image" content="{{ $metaImageUrl }}?v={{ $cacheVersion }}">
+        @endunless
     @endif
+
+    {{-- Default Open Graph tags for non-article pages --}}
+    @unless(request()->is('article/*'))
+        @hasSection('meta_title')
+            <meta property="og:title" content="@yield('meta_title')">
+            <meta name="twitter:title" content="@yield('meta_title')">
+        @endif
+        @hasSection('meta_description')
+            <meta property="og:description" content="@yield('meta_description')">
+            <meta name="twitter:description" content="@yield('meta_description')">
+        @endif
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ url()->current() }}">
+    @endunless
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/logo_v1.svg') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
@@ -49,6 +66,8 @@
     @if(request()->path() === 'solutions')
         <link rel="stylesheet" href="{{ asset('css/solutions.css') }}">
     @endif
+
+    @stack('meta_tags')
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>

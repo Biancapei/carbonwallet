@@ -22,23 +22,24 @@
             <div id="all" class="tab-panel {{ $activeTab === 'all' ? 'active' : '' }}">
                 <div id="blog-content" class="blog-cards-grid p-0">
                     @forelse($blogs as $post)
-                        <div class="blog-card">
-                            <div class="blog-card-image">
-                                <img src="{{ $post->image_url }}" alt="{{ $post->title }}">
+                        <div class="blog-card" id="blog-card-{{ $post->id }}">
+                            <div class="blog-card-image" id="featureImage-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" id="featureImage-img-{{ $post->id }}">
                             </div>
-                            <div class="blog-card-content">
+                            <div class="blog-card-content" id="blogContent-{{ $post->id }}">
                                 <div class="blog-content-wrapper">
                                     <div class="author mt-3">
                                         <div class="blog-author">{{ optional($post->user)->name ?? 'Admin' }}</div>
                                         <div class="blog-date">{{ $post->created_at->format('M d, Y') }}</div>
                                     </div>
-                                    <h3 class="blog-title">{{ $post->title }}</h3>
-                                    <p class="blog-excerpt">{{ Str::limit(strip_tags(html_entity_decode($post->content)), 180) }}</p>
+                                    <h3 class="blog-title" id="blogTitle-{{ $post->id }}">{{ $post->title }}</h3>
+                                    <p class="blog-excerpt" id="excerpt-{{ $post->id }}">{{ $post->excerpt ?? Str::limit(strip_tags(html_entity_decode($post->content)), 180) }}</p>
+
+                                    <h6 class="blog-read-more">
+                                        <a href="{{ route('article.show', $post) }}" style="color: inherit; text-decoration: none;">Read More</a>
+                                        <img src="{{ asset('images/home/arrow.svg') }}" alt="Arrow">
+                                    </h6>
                                 </div>
-                                <h6 class="blog-read-more">
-                                    <a href="{{ route('article.show', $post) }}" style="color: inherit; text-decoration: none;">Read More</a>
-                                    <img src="{{ asset('images/home/arrow.svg') }}" alt="Arrow">
-                                </h6>
                             </div>
                         </div>
                     @empty
@@ -57,18 +58,18 @@
             <div id="carbon-accounting" class="tab-panel {{ $activeTab === 'carbon-accounting' ? 'active' : '' }}">
                 <div class="blog-cards-grid">
                     @forelse($carbonAccountingBlogs as $post)
-                        <div class="blog-card">
-                            <div class="blog-card-image">
-                                <img src="{{ $post->image_url }}" alt="{{ $post->title }}">
+                        <div class="blog-card" id="blog-card-{{ $post->id }}">
+                            <div class="blog-card-image" id="featureImage-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" id="featureImage-img-{{ $post->id }}">
                             </div>
-                            <div class="blog-card-content">
+                            <div class="blog-card-content" id="blogContent-{{ $post->id }}">
                                 <div class="blog-content-wrapper">
                                     <div class="author mt-3">
                                         <div class="blog-author">{{ optional($post->user)->name ?? 'Admin' }}</div>
                                         <div class="blog-date">{{ $post->created_at->format('M d, Y') }}</div>
                                     </div>
-                                    <h3 class="blog-title">{{ $post->title }}</h3>
-                                    <p class="blog-excerpt">{{ Str::limit(strip_tags(html_entity_decode($post->content)), 180) }}</p>
+                                    <h3 class="blog-title" id="blogTitle-{{ $post->id }}">{{ $post->title }}</h3>
+                                    <p class="blog-excerpt" id="excerpt-{{ $post->id }}">{{ $post->excerpt ?? Str::limit(strip_tags(html_entity_decode($post->content)), 180) }}</p>
                                 </div>
                                 <h6 class="blog-read-more">
                                     <a href="{{ route('article.show', $post) }}" style="color: inherit; text-decoration: none;">Read More</a>
@@ -92,18 +93,18 @@
             <div id="hospitality" class="tab-panel {{ $activeTab === 'hospitality' ? 'active' : '' }}">
                 <div class="blog-cards-grid">
                     @forelse($hospitalityBlogs as $post)
-                        <div class="blog-card">
-                            <div class="blog-card-image">
-                                <img src="{{ $post->image_url }}" alt="{{ $post->title }}">
+                        <div class="blog-card" id="blog-card-{{ $post->id }}">
+                            <div class="blog-card-image" id="featureImage-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" id="featureImage-img-{{ $post->id }}">
                             </div>
-                            <div class="blog-card-content">
+                            <div class="blog-card-content" id="blogContent-{{ $post->id }}">
                                 <div class="blog-content-wrapper">
                                     <div class="author mt-3">
                                         <div class="blog-author">{{ optional($post->user)->name ?? 'Admin' }}</div>
                                         <div class="blog-date">{{ $post->created_at->format('M d, Y') }}</div>
                                     </div>
-                                    <h3 class="blog-title">{{ $post->title }}</h3>
-                                    <p class="blog-excerpt">{{ Str::limit(strip_tags(html_entity_decode($post->content)), 180) }}</p>
+                                    <h3 class="blog-title" id="blogTitle-{{ $post->id }}">{{ $post->title }}</h3>
+                                    <p class="blog-excerpt" id="excerpt-{{ $post->id }}">{{ $post->excerpt ?? Str::limit(strip_tags(html_entity_decode($post->content)), 180) }}</p>
                                 </div>
                                 <h6 class="blog-read-more">
                                     <a href="{{ route('article.show', $post) }}" style="color: inherit; text-decoration: none;">Read More</a>
@@ -127,18 +128,18 @@
             <div id="net-zero" class="tab-panel {{ $activeTab === 'net-zero' ? 'active' : '' }}">
                 <div class="blog-cards-grid">
                     @forelse($netZeroBlogs as $post)
-                        <div class="blog-card">
-                            <div class="blog-card-image">
-                                <img src="{{ $post->image_url }}" alt="{{ $post->title }}">
+                        <div class="blog-card" id="blog-card-{{ $post->id }}">
+                            <div class="blog-card-image" id="featureImage-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" id="featureImage-img-{{ $post->id }}">
                             </div>
-                            <div class="blog-card-content">
+                            <div class="blog-card-content" id="blogContent-{{ $post->id }}">
                                 <div class="blog-content-wrapper">
                                     <div class="author mt-3">
                                         <div class="blog-author">{{ optional($post->user)->name ?? 'Admin' }}</div>
                                         <div class="blog-date">{{ $post->created_at->format('M d, Y') }}</div>
                                     </div>
-                                    <h3 class="blog-title">{{ $post->title }}</h3>
-                                    <p class="blog-excerpt">{{ Str::limit(strip_tags(html_entity_decode($post->content)), 180) }}</p>
+                                    <h3 class="blog-title" id="blogTitle-{{ $post->id }}">{{ $post->title }}</h3>
+                                    <p class="blog-excerpt" id="excerpt-{{ $post->id }}">{{ $post->excerpt ?? Str::limit(strip_tags(html_entity_decode($post->content)), 180) }}</p>
                                 </div>
                                 <h6 class="blog-read-more">
                                     <a href="{{ route('article.show', $post) }}" style="color: inherit; text-decoration: none;">Read More</a>
@@ -162,18 +163,18 @@
             <div id="regulations" class="tab-panel {{ $activeTab === 'regulations' ? 'active' : '' }}">
                 <div class="blog-cards-grid">
                     @forelse($regulationsBlogs as $post)
-                        <div class="blog-card">
-                            <div class="blog-card-image">
-                                <img src="{{ $post->image_url }}" alt="{{ $post->title }}">
+                        <div class="blog-card" id="blog-card-{{ $post->id }}">
+                            <div class="blog-card-image" id="featureImage-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" id="featureImage-img-{{ $post->id }}">
                             </div>
-                            <div class="blog-card-content">
+                            <div class="blog-card-content" id="blogContent-{{ $post->id }}">
                                 <div class="blog-content-wrapper">
                                     <div class="author mt-3">
                                         <div class="blog-author">{{ optional($post->user)->name ?? 'Admin' }}</div>
                                         <div class="blog-date">{{ $post->created_at->format('M d, Y') }}</div>
                                     </div>
-                                    <h3 class="blog-title">{{ $post->title }}</h3>
-                                    <p class="blog-excerpt">{{ Str::limit(strip_tags(html_entity_decode($post->content)), 180) }}</p>
+                                    <h3 class="blog-title" id="blogTitle-{{ $post->id }}">{{ $post->title }}</h3>
+                                    <p class="blog-excerpt" id="excerpt-{{ $post->id }}">{{ $post->excerpt ?? Str::limit(strip_tags(html_entity_decode($post->content)), 180) }}</p>
                                 </div>
                                 <h6 class="blog-read-more">
                                     <a href="{{ route('article.show', $post) }}" style="color: inherit; text-decoration: none;">Read More</a>
@@ -214,17 +215,17 @@
             <div id="all-mobile" class="tab-panel {{ $activeTab === 'all' ? 'active' : '' }}">
                 <div class="blog-cards-grid-mobile p-0">
                     @forelse($blogs as $post)
-                        <div class="blog-card-mobile">
-                            <div class="blog-card-image-mobile">
-                                <img src="{{ $post->image_url }}" alt="{{ $post->title }}">
+                        <div class="blog-card-mobile" id="blog-card-mobile-{{ $post->id }}">
+                            <div class="blog-card-image-mobile" id="featureImage-mobile-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" id="featureImage-img-mobile-{{ $post->id }}">
                             </div>
-                            <div class="blog-card-content-mobile">
+                            <div class="blog-card-content-mobile" id="blogContent-mobile-{{ $post->id }}">
                                 <div class="author-mobile mt-3">
                                     <div class="blog-author-mobile">{{ optional($post->user)->name ?? 'Admin' }}</div>
                                     <div class="blog-date-mobile">{{ $post->created_at->format('M d, Y') }}</div>
                                 </div>
-                                <h3 class="blog-title-mobile">{{ $post->title }}</h3>
-                                <p class="blog-excerpt-mobile">{{ Str::limit(strip_tags(html_entity_decode($post->content)), 120) }}</p>
+                                <h3 class="blog-title-mobile" id="blogTitle-mobile-{{ $post->id }}">{{ $post->title }}</h3>
+                                <p class="blog-excerpt-mobile" id="excerpt-mobile-{{ $post->id }}">{{ $post->excerpt ?? Str::limit(strip_tags(html_entity_decode($post->content)), 120) }}</p>
                                 <h6 class="blog-read-more-mobile">
                                     <a href="{{ route('article.show', $post) }}" style="color: inherit; text-decoration: none;">Read More</a>
                                     <img src="{{ asset('images/home/arrow.svg') }}" alt="Arrow">
@@ -247,17 +248,17 @@
             <div id="carbon-accounting-mobile" class="tab-panel {{ $activeTab === 'carbon-accounting' ? 'active' : '' }}">
                 <div class="blog-cards-grid-mobile">
                     @forelse($carbonAccountingBlogs as $post)
-                        <div class="blog-card-mobile">
-                            <div class="blog-card-image-mobile">
-                                <img src="{{ $post->image_url }}" alt="{{ $post->title }}">
+                        <div class="blog-card-mobile" id="blog-card-mobile-{{ $post->id }}">
+                            <div class="blog-card-image-mobile" id="featureImage-mobile-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" id="featureImage-img-mobile-{{ $post->id }}">
                             </div>
-                            <div class="blog-card-content-mobile">
+                            <div class="blog-card-content-mobile" id="blogContent-mobile-{{ $post->id }}">
                                 <div class="author-mobile mt-3">
                                     <div class="blog-author-mobile">{{ optional($post->user)->name ?? 'Admin' }}</div>
                                     <div class="blog-date-mobile">{{ $post->created_at->format('M d, Y') }}</div>
                                 </div>
-                                <h3 class="blog-title-mobile">{{ $post->title }}</h3>
-                                <p class="blog-excerpt-mobile">{{ Str::limit(strip_tags(html_entity_decode($post->content)), 120) }}</p>
+                                <h3 class="blog-title-mobile" id="blogTitle-mobile-{{ $post->id }}">{{ $post->title }}</h3>
+                                <p class="blog-excerpt-mobile" id="excerpt-mobile-{{ $post->id }}">{{ $post->excerpt ?? Str::limit(strip_tags(html_entity_decode($post->content)), 120) }}</p>
                                 <h6 class="blog-read-more-mobile">
                                     <a href="{{ route('article.show', $post) }}" style="color: inherit; text-decoration: none;">Read More</a>
                                     <img src="{{ asset('images/home/arrow.svg') }}" alt="Arrow">
@@ -280,17 +281,17 @@
             <div id="hospitality-mobile" class="tab-panel {{ $activeTab === 'hospitality' ? 'active' : '' }}">
                 <div class="blog-cards-grid-mobile">
                     @forelse($hospitalityBlogs as $post)
-                        <div class="blog-card-mobile">
-                            <div class="blog-card-image-mobile">
-                                <img src="{{ $post->image_url }}" alt="{{ $post->title }}">
+                        <div class="blog-card-mobile" id="blog-card-mobile-{{ $post->id }}">
+                            <div class="blog-card-image-mobile" id="featureImage-mobile-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" id="featureImage-img-mobile-{{ $post->id }}">
                             </div>
-                            <div class="blog-card-content-mobile">
+                            <div class="blog-card-content-mobile" id="blogContent-mobile-{{ $post->id }}">
                                 <div class="author-mobile mt-3">
                                     <div class="blog-author-mobile">{{ optional($post->user)->name ?? 'Admin' }}</div>
                                     <div class="blog-date-mobile">{{ $post->created_at->format('M d, Y') }}</div>
                                 </div>
-                                <h3 class="blog-title-mobile">{{ $post->title }}</h3>
-                                <p class="blog-excerpt-mobile">{{ Str::limit(strip_tags(html_entity_decode($post->content)), 120) }}</p>
+                                <h3 class="blog-title-mobile" id="blogTitle-mobile-{{ $post->id }}">{{ $post->title }}</h3>
+                                <p class="blog-excerpt-mobile" id="excerpt-mobile-{{ $post->id }}">{{ $post->excerpt ?? Str::limit(strip_tags(html_entity_decode($post->content)), 120) }}</p>
                                 <h6 class="blog-read-more-mobile">
                                     <a href="{{ route('article.show', $post) }}" style="color: inherit; text-decoration: none;">Read More</a>
                                     <img src="{{ asset('images/home/arrow.svg') }}" alt="Arrow">
@@ -313,17 +314,17 @@
             <div id="net-zero-mobile" class="tab-panel {{ $activeTab === 'net-zero' ? 'active' : '' }}">
                 <div class="blog-cards-grid-mobile">
                     @forelse($netZeroBlogs as $post)
-                        <div class="blog-card-mobile">
-                            <div class="blog-card-image-mobile">
-                                <img src="{{ $post->image_url }}" alt="{{ $post->title }}">
+                        <div class="blog-card-mobile" id="blog-card-mobile-{{ $post->id }}">
+                            <div class="blog-card-image-mobile" id="featureImage-mobile-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" id="featureImage-img-mobile-{{ $post->id }}">
                             </div>
-                            <div class="blog-card-content-mobile">
+                            <div class="blog-card-content-mobile" id="blogContent-mobile-{{ $post->id }}">
                                 <div class="author-mobile mt-3">
                                     <div class="blog-author-mobile">{{ optional($post->user)->name ?? 'Admin' }}</div>
                                     <div class="blog-date-mobile">{{ $post->created_at->format('M d, Y') }}</div>
                                 </div>
-                                <h3 class="blog-title-mobile">{{ $post->title }}</h3>
-                                <p class="blog-excerpt-mobile">{{ Str::limit(strip_tags(html_entity_decode($post->content)), 120) }}</p>
+                                <h3 class="blog-title-mobile" id="blogTitle-mobile-{{ $post->id }}">{{ $post->title }}</h3>
+                                <p class="blog-excerpt-mobile" id="excerpt-mobile-{{ $post->id }}">{{ $post->excerpt ?? Str::limit(strip_tags(html_entity_decode($post->content)), 120) }}</p>
                                 <h6 class="blog-read-more-mobile">
                                     <a href="{{ route('article.show', $post) }}" style="color: inherit; text-decoration: none;">Read More</a>
                                     <img src="{{ asset('images/home/arrow.svg') }}" alt="Arrow">
@@ -346,17 +347,17 @@
             <div id="regulations-mobile" class="tab-panel {{ $activeTab === 'regulations' ? 'active' : '' }}">
                 <div class="blog-cards-grid-mobile">
                     @forelse($regulationsBlogs as $post)
-                        <div class="blog-card-mobile">
-                            <div class="blog-card-image-mobile">
-                                <img src="{{ $post->image_url }}" alt="{{ $post->title }}">
+                        <div class="blog-card-mobile" id="blog-card-mobile-{{ $post->id }}">
+                            <div class="blog-card-image-mobile" id="featureImage-mobile-{{ $post->id }}">
+                                <img src="{{ $post->image_url }}" alt="{{ $post->image_alt ?? $post->title }}" id="featureImage-img-mobile-{{ $post->id }}">
                             </div>
-                            <div class="blog-card-content-mobile">
+                            <div class="blog-card-content-mobile" id="blogContent-mobile-{{ $post->id }}">
                                 <div class="author-mobile mt-3">
                                     <div class="blog-author-mobile">{{ optional($post->user)->name ?? 'Admin' }}</div>
                                     <div class="blog-date-mobile">{{ $post->created_at->format('M d, Y') }}</div>
                                 </div>
-                                <h3 class="blog-title-mobile">{{ $post->title }}</h3>
-                                <p class="blog-excerpt-mobile">{{ Str::limit(strip_tags(html_entity_decode($post->content)), 120) }}</p>
+                                <h3 class="blog-title-mobile" id="blogTitle-mobile-{{ $post->id }}">{{ $post->title }}</h3>
+                                <p class="blog-excerpt-mobile" id="excerpt-mobile-{{ $post->id }}">{{ $post->excerpt ?? Str::limit(strip_tags(html_entity_decode($post->content)), 120) }}</p>
                                 <h6 class="blog-read-more-mobile">
                                     <a href="{{ route('article.show', $post) }}" style="color: inherit; text-decoration: none;">Read More</a>
                                     <img src="{{ asset('images/home/arrow.svg') }}" alt="Arrow">

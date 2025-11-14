@@ -26,7 +26,7 @@
                                     <tr>
                                         <td>
                                             @if($blog->image)
-                                                <img class="blog-image" src="{{ $blog->image_url }}" alt="{{ $blog->title }}">
+                                                <img class="blog-image" src="{{ $blog->image_url }}" alt="{{ $blog->image_alt ?? $blog->title }}">
                                             @else
                                                 <div class="admin-placeholder-image">
                                                     <i class="fas fa-image"></i>
