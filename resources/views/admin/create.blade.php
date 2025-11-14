@@ -549,7 +549,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Image preview functionality
 function updateFileName(input) {
-    const fileNameInput = document.getElementById('featuredImage');
+    const fileNameInput = document.getElementById('featureImage');
     if (input.files && input.files[0]) {
         fileNameInput.value = input.files[0].name;
         fileNameInput.classList.add('has-file');
